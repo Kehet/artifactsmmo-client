@@ -30,20 +30,26 @@ composer require kehet/artifactsmmo-client
 
 ```php
 <?php
-require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new \Kehet\ArtifactsMMO\\Api\AccountsApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+\Kehet\ArtifactsMMO\Configuration::getDefaultConfiguration()
+    ->setHost('https://api.artifactsmmo.com')
+    ->setAccessToken('XXXXXXXXXXXXXX');
+
+$apiInstance = new \Kehet\ArtifactsMMO\Api\MyCharactersApi(
+    new \GuzzleHttp\Client()
 );
 
-$add_account_schema = new \Kehet\ArtifactsMMO\Model\AddAccountSchema(); // \\Kehet\ArtifactsMMO\\Model\AddAccountSchema
-
 try {
-    $result = $apiInstance->createAccountAccountsCreatePost($add_account_schema);
+    $response = $apiInstance->actionMoveMyNameActionMovePost(
+        'Kehetus',
+        new \Kehet\ArtifactsMMO\Model\DestinationSchema([
+            'x' => 1,
+            'y' => 1,
+        ])
+    );
+    
     print_r($result);
-} catch (Exception $e) {
+} catch (\Kehet\ArtifactsMMO\ApiException $e) {
     echo 'Exception when calling AccountsApi->createAccountAccountsCreatePost: ', $e->getMessage(), PHP_EOL;
 }
 ```
