@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ServerDetailsApi
  * PHP version 8.1
@@ -138,8 +139,7 @@ class ServerDetailsApi
      */
     public function getServerDetailsGet(
         string $contentType = self::contentTypes['getServerDetailsGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\StatusResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\StatusResponseSchema {
         list($response) = $this->getServerDetailsGetWithHttpInfo($contentType);
         return $response;
     }
@@ -157,8 +157,7 @@ class ServerDetailsApi
      */
     public function getServerDetailsGetWithHttpInfo(
         string $contentType = self::contentTypes['getServerDetailsGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getServerDetailsGetRequest($contentType);
 
         try {
@@ -183,7 +182,7 @@ class ServerDetailsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\StatusResponseSchema',
@@ -191,7 +190,7 @@ class ServerDetailsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -222,7 +221,7 @@ class ServerDetailsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -239,8 +238,7 @@ class ServerDetailsApi
      */
     public function getServerDetailsGetAsync(
         string $contentType = self::contentTypes['getServerDetailsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getServerDetailsGetAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
@@ -261,8 +259,7 @@ class ServerDetailsApi
      */
     public function getServerDetailsGetAsyncWithHttpInfo(
         string $contentType = self::contentTypes['getServerDetailsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\StatusResponseSchema';
         $request = $this->getServerDetailsGetRequest($contentType);
 
@@ -270,7 +267,7 @@ class ServerDetailsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -312,8 +309,7 @@ class ServerDetailsApi
      */
     public function getServerDetailsGetRequest(
         string $contentType = self::contentTypes['getServerDetailsGet'][0]
-    ): Request
-    {
+    ): Request {
 
 
         $resourcePath = '/';
@@ -404,7 +400,7 @@ class ServerDetailsApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

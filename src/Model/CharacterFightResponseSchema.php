@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CharacterFightResponseSchema
  *
@@ -380,7 +381,7 @@ class CharacterFightResponseSchema implements ModelInterface, ArrayAccess, JsonS
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

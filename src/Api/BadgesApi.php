@@ -1,4 +1,5 @@
 <?php
+
 /**
  * BadgesApi
  * PHP version 8.1
@@ -145,8 +146,7 @@ class BadgesApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllBadgesBadgesGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageBadgeSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageBadgeSchema {
         list($response) = $this->getAllBadgesBadgesGetWithHttpInfo($page, $size, $contentType);
         return $response;
     }
@@ -168,8 +168,7 @@ class BadgesApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllBadgesBadgesGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAllBadgesBadgesGetRequest($page, $size, $contentType);
 
         try {
@@ -194,7 +193,7 @@ class BadgesApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageBadgeSchema',
@@ -202,7 +201,7 @@ class BadgesApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -233,7 +232,7 @@ class BadgesApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -254,8 +253,7 @@ class BadgesApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllBadgesBadgesGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAllBadgesBadgesGetAsyncWithHttpInfo($page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -280,8 +278,7 @@ class BadgesApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllBadgesBadgesGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageBadgeSchema';
         $request = $this->getAllBadgesBadgesGetRequest($page, $size, $contentType);
 
@@ -289,7 +286,7 @@ class BadgesApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -335,20 +332,19 @@ class BadgesApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllBadgesBadgesGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling BadgesApi.getAllBadgesBadgesGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling BadgesApi.getAllBadgesBadgesGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling BadgesApi.getAllBadgesBadgesGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/badges';
         $formParams = [];
@@ -447,8 +443,7 @@ class BadgesApi
     public function getBadgeBadgesCodeGet(
         string $code,
         string $contentType = self::contentTypes['getBadgeBadgesCodeGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\BadgeResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\BadgeResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getBadgeBadgesCodeGetWithHttpInfo($code, $contentType);
         return $response;
     }
@@ -468,8 +463,7 @@ class BadgesApi
     public function getBadgeBadgesCodeGetWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getBadgeBadgesCodeGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getBadgeBadgesCodeGetRequest($code, $contentType);
 
         try {
@@ -494,7 +488,7 @@ class BadgesApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\BadgeResponseSchema',
@@ -508,7 +502,7 @@ class BadgesApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -547,7 +541,7 @@ class BadgesApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -566,8 +560,7 @@ class BadgesApi
     public function getBadgeBadgesCodeGetAsync(
         string $code,
         string $contentType = self::contentTypes['getBadgeBadgesCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getBadgeBadgesCodeGetAsyncWithHttpInfo($code, $contentType)
             ->then(
                 function ($response) {
@@ -590,8 +583,7 @@ class BadgesApi
     public function getBadgeBadgesCodeGetAsyncWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getBadgeBadgesCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\BadgeResponseSchema';
         $request = $this->getBadgeBadgesCodeGetRequest($code, $contentType);
 
@@ -599,7 +591,7 @@ class BadgesApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -643,8 +635,7 @@ class BadgesApi
     public function getBadgeBadgesCodeGetRequest(
         string $code,
         string $contentType = self::contentTypes['getBadgeBadgesCodeGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'code' is set
         if ($code === null || (is_array($code) && count($code) === 0)) {
@@ -655,7 +646,7 @@ class BadgesApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $code)) {
             throw new InvalidArgumentException("invalid value for \"code\" when calling BadgesApi.getBadgeBadgesCodeGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/badges/{code}';
         $formParams = [];
@@ -753,7 +744,7 @@ class BadgesApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

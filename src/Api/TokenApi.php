@@ -1,4 +1,5 @@
 <?php
+
 /**
  * TokenApi
  * PHP version 8.1
@@ -138,8 +139,7 @@ class TokenApi
      */
     public function generateTokenTokenPost(
         string $contentType = self::contentTypes['generateTokenTokenPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\TokenResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\TokenResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->generateTokenTokenPostWithHttpInfo($contentType);
         return $response;
     }
@@ -157,8 +157,7 @@ class TokenApi
      */
     public function generateTokenTokenPostWithHttpInfo(
         string $contentType = self::contentTypes['generateTokenTokenPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->generateTokenTokenPostRequest($contentType);
 
         try {
@@ -183,7 +182,7 @@ class TokenApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\TokenResponseSchema',
@@ -203,7 +202,7 @@ class TokenApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -250,7 +249,7 @@ class TokenApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -267,8 +266,7 @@ class TokenApi
      */
     public function generateTokenTokenPostAsync(
         string $contentType = self::contentTypes['generateTokenTokenPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->generateTokenTokenPostAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
@@ -289,8 +287,7 @@ class TokenApi
      */
     public function generateTokenTokenPostAsyncWithHttpInfo(
         string $contentType = self::contentTypes['generateTokenTokenPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\TokenResponseSchema';
         $request = $this->generateTokenTokenPostRequest($contentType);
 
@@ -298,7 +295,7 @@ class TokenApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -340,8 +337,7 @@ class TokenApi
      */
     public function generateTokenTokenPostRequest(
         string $contentType = self::contentTypes['generateTokenTokenPost'][0]
-    ): Request
-    {
+    ): Request {
 
 
         $resourcePath = '/token';
@@ -436,7 +432,7 @@ class TokenApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

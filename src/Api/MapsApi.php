@@ -1,4 +1,5 @@
 <?php
+
 /**
  * MapsApi
  * PHP version 8.1
@@ -159,8 +160,7 @@ class MapsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllMapsMapsGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageMapSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageMapSchema {
         list($response) = $this->getAllMapsMapsGetWithHttpInfo($layer, $content_type, $content_code, $hide_blocked_maps, $page, $size, $contentType);
         return $response;
     }
@@ -190,8 +190,7 @@ class MapsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllMapsMapsGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAllMapsMapsGetRequest($layer, $content_type, $content_code, $hide_blocked_maps, $page, $size, $contentType);
 
         try {
@@ -216,7 +215,7 @@ class MapsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageMapSchema',
@@ -224,7 +223,7 @@ class MapsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -255,7 +254,7 @@ class MapsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -284,8 +283,7 @@ class MapsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllMapsMapsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAllMapsMapsGetAsyncWithHttpInfo($layer, $content_type, $content_code, $hide_blocked_maps, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -318,8 +316,7 @@ class MapsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllMapsMapsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageMapSchema';
         $request = $this->getAllMapsMapsGetRequest($layer, $content_type, $content_code, $hide_blocked_maps, $page, $size, $contentType);
 
@@ -327,7 +324,7 @@ class MapsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -381,27 +378,26 @@ class MapsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllMapsMapsGet'][0]
-    ): Request
-    {
+    ): Request {
 
 
 
         if ($content_code !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $content_code)) {
             throw new InvalidArgumentException("invalid value for \"content_code\" when calling MapsApi.getAllMapsMapsGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling MapsApi.getAllMapsMapsGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MapsApi.getAllMapsMapsGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MapsApi.getAllMapsMapsGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/maps';
         $formParams = [];
@@ -546,8 +542,7 @@ class MapsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getLayerMapsMapsLayerGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageMapSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageMapSchema {
         list($response) = $this->getLayerMapsMapsLayerGetWithHttpInfo($layer, $content_type, $content_code, $hide_blocked_maps, $page, $size, $contentType);
         return $response;
     }
@@ -577,8 +572,7 @@ class MapsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getLayerMapsMapsLayerGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getLayerMapsMapsLayerGetRequest($layer, $content_type, $content_code, $hide_blocked_maps, $page, $size, $contentType);
 
         try {
@@ -603,7 +597,7 @@ class MapsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageMapSchema',
@@ -611,7 +605,7 @@ class MapsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -642,7 +636,7 @@ class MapsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -671,8 +665,7 @@ class MapsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getLayerMapsMapsLayerGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getLayerMapsMapsLayerGetAsyncWithHttpInfo($layer, $content_type, $content_code, $hide_blocked_maps, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -705,8 +698,7 @@ class MapsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getLayerMapsMapsLayerGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageMapSchema';
         $request = $this->getLayerMapsMapsLayerGetRequest($layer, $content_type, $content_code, $hide_blocked_maps, $page, $size, $contentType);
 
@@ -714,7 +706,7 @@ class MapsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -768,8 +760,7 @@ class MapsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getLayerMapsMapsLayerGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'layer' is set
         if ($layer === null || (is_array($layer) && count($layer) === 0)) {
@@ -782,19 +773,19 @@ class MapsApi
         if ($content_code !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $content_code)) {
             throw new InvalidArgumentException("invalid value for \"content_code\" when calling MapsApi.getLayerMapsMapsLayerGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling MapsApi.getLayerMapsMapsLayerGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MapsApi.getLayerMapsMapsLayerGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MapsApi.getLayerMapsMapsLayerGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/maps/{layer}';
         $formParams = [];
@@ -928,8 +919,7 @@ class MapsApi
     public function getMapByIdMapsIdMapIdGet(
         int $map_id,
         string $contentType = self::contentTypes['getMapByIdMapsIdMapIdGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\MapResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\MapResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getMapByIdMapsIdMapIdGetWithHttpInfo($map_id, $contentType);
         return $response;
     }
@@ -949,8 +939,7 @@ class MapsApi
     public function getMapByIdMapsIdMapIdGetWithHttpInfo(
         int $map_id,
         string $contentType = self::contentTypes['getMapByIdMapsIdMapIdGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getMapByIdMapsIdMapIdGetRequest($map_id, $contentType);
 
         try {
@@ -975,7 +964,7 @@ class MapsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\MapResponseSchema',
@@ -989,7 +978,7 @@ class MapsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1028,7 +1017,7 @@ class MapsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1047,8 +1036,7 @@ class MapsApi
     public function getMapByIdMapsIdMapIdGetAsync(
         int $map_id,
         string $contentType = self::contentTypes['getMapByIdMapsIdMapIdGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getMapByIdMapsIdMapIdGetAsyncWithHttpInfo($map_id, $contentType)
             ->then(
                 function ($response) {
@@ -1071,8 +1059,7 @@ class MapsApi
     public function getMapByIdMapsIdMapIdGetAsyncWithHttpInfo(
         int $map_id,
         string $contentType = self::contentTypes['getMapByIdMapsIdMapIdGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\MapResponseSchema';
         $request = $this->getMapByIdMapsIdMapIdGetRequest($map_id, $contentType);
 
@@ -1080,7 +1067,7 @@ class MapsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1124,8 +1111,7 @@ class MapsApi
     public function getMapByIdMapsIdMapIdGetRequest(
         int $map_id,
         string $contentType = self::contentTypes['getMapByIdMapsIdMapIdGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'map_id' is set
         if ($map_id === null || (is_array($map_id) && count($map_id) === 0)) {
@@ -1226,8 +1212,7 @@ class MapsApi
         int $x,
         int $y,
         string $contentType = self::contentTypes['getMapByPositionMapsLayerXYGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\MapResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\MapResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getMapByPositionMapsLayerXYGetWithHttpInfo($layer, $x, $y, $contentType);
         return $response;
     }
@@ -1251,8 +1236,7 @@ class MapsApi
         int $x,
         int $y,
         string $contentType = self::contentTypes['getMapByPositionMapsLayerXYGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getMapByPositionMapsLayerXYGetRequest($layer, $x, $y, $contentType);
 
         try {
@@ -1277,7 +1261,7 @@ class MapsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\MapResponseSchema',
@@ -1291,7 +1275,7 @@ class MapsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1330,7 +1314,7 @@ class MapsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1353,8 +1337,7 @@ class MapsApi
         int $x,
         int $y,
         string $contentType = self::contentTypes['getMapByPositionMapsLayerXYGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getMapByPositionMapsLayerXYGetAsyncWithHttpInfo($layer, $x, $y, $contentType)
             ->then(
                 function ($response) {
@@ -1381,8 +1364,7 @@ class MapsApi
         int $x,
         int $y,
         string $contentType = self::contentTypes['getMapByPositionMapsLayerXYGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\MapResponseSchema';
         $request = $this->getMapByPositionMapsLayerXYGetRequest($layer, $x, $y, $contentType);
 
@@ -1390,7 +1372,7 @@ class MapsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1438,8 +1420,7 @@ class MapsApi
         int $x,
         int $y,
         string $contentType = self::contentTypes['getMapByPositionMapsLayerXYGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'layer' is set
         if ($layer === null || (is_array($layer) && count($layer) === 0)) {
@@ -1575,7 +1556,7 @@ class MapsApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

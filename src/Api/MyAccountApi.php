@@ -1,4 +1,5 @@
 <?php
+
 /**
  * MyAccountApi
  * PHP version 8.1
@@ -155,8 +156,7 @@ class MyAccountApi
     public function changePasswordMyChangePasswordPost(
         \Kehet\ArtifactsMMO\Model\ChangePassword $change_password,
         string $contentType = self::contentTypes['changePasswordMyChangePasswordPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\ResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\ResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->changePasswordMyChangePasswordPostWithHttpInfo($change_password, $contentType);
         return $response;
     }
@@ -176,8 +176,7 @@ class MyAccountApi
     public function changePasswordMyChangePasswordPostWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\ChangePassword $change_password,
         string $contentType = self::contentTypes['changePasswordMyChangePasswordPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->changePasswordMyChangePasswordPostRequest($change_password, $contentType);
 
         try {
@@ -202,7 +201,7 @@ class MyAccountApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\ResponseSchema',
@@ -228,7 +227,7 @@ class MyAccountApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -283,7 +282,7 @@ class MyAccountApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -302,8 +301,7 @@ class MyAccountApi
     public function changePasswordMyChangePasswordPostAsync(
         \Kehet\ArtifactsMMO\Model\ChangePassword $change_password,
         string $contentType = self::contentTypes['changePasswordMyChangePasswordPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->changePasswordMyChangePasswordPostAsyncWithHttpInfo($change_password, $contentType)
             ->then(
                 function ($response) {
@@ -326,8 +324,7 @@ class MyAccountApi
     public function changePasswordMyChangePasswordPostAsyncWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\ChangePassword $change_password,
         string $contentType = self::contentTypes['changePasswordMyChangePasswordPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\ResponseSchema';
         $request = $this->changePasswordMyChangePasswordPostRequest($change_password, $contentType);
 
@@ -335,7 +332,7 @@ class MyAccountApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -379,8 +376,7 @@ class MyAccountApi
     public function changePasswordMyChangePasswordPostRequest(
         \Kehet\ArtifactsMMO\Model\ChangePassword $change_password,
         string $contentType = self::contentTypes['changePasswordMyChangePasswordPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'change_password' is set
         if ($change_password === null || (is_array($change_password) && count($change_password) === 0)) {
@@ -478,8 +474,7 @@ class MyAccountApi
      */
     public function getAccountDetailsMyDetailsGet(
         string $contentType = self::contentTypes['getAccountDetailsMyDetailsGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\MyAccountDetailsSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\MyAccountDetailsSchema {
         list($response) = $this->getAccountDetailsMyDetailsGetWithHttpInfo($contentType);
         return $response;
     }
@@ -497,8 +492,7 @@ class MyAccountApi
      */
     public function getAccountDetailsMyDetailsGetWithHttpInfo(
         string $contentType = self::contentTypes['getAccountDetailsMyDetailsGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAccountDetailsMyDetailsGetRequest($contentType);
 
         try {
@@ -523,7 +517,7 @@ class MyAccountApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\MyAccountDetailsSchema',
@@ -531,7 +525,7 @@ class MyAccountApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -562,7 +556,7 @@ class MyAccountApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -579,8 +573,7 @@ class MyAccountApi
      */
     public function getAccountDetailsMyDetailsGetAsync(
         string $contentType = self::contentTypes['getAccountDetailsMyDetailsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAccountDetailsMyDetailsGetAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
@@ -601,8 +594,7 @@ class MyAccountApi
      */
     public function getAccountDetailsMyDetailsGetAsyncWithHttpInfo(
         string $contentType = self::contentTypes['getAccountDetailsMyDetailsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\MyAccountDetailsSchema';
         $request = $this->getAccountDetailsMyDetailsGetRequest($contentType);
 
@@ -610,7 +602,7 @@ class MyAccountApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -652,8 +644,7 @@ class MyAccountApi
      */
     public function getAccountDetailsMyDetailsGetRequest(
         string $contentType = self::contentTypes['getAccountDetailsMyDetailsGet'][0]
-    ): Request
-    {
+    ): Request {
 
 
         $resourcePath = '/my/details';
@@ -737,8 +728,7 @@ class MyAccountApi
      */
     public function getBankDetailsMyBankGet(
         string $contentType = self::contentTypes['getBankDetailsMyBankGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\BankResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\BankResponseSchema {
         list($response) = $this->getBankDetailsMyBankGetWithHttpInfo($contentType);
         return $response;
     }
@@ -756,8 +746,7 @@ class MyAccountApi
      */
     public function getBankDetailsMyBankGetWithHttpInfo(
         string $contentType = self::contentTypes['getBankDetailsMyBankGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getBankDetailsMyBankGetRequest($contentType);
 
         try {
@@ -782,7 +771,7 @@ class MyAccountApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\BankResponseSchema',
@@ -790,7 +779,7 @@ class MyAccountApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -821,7 +810,7 @@ class MyAccountApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -838,8 +827,7 @@ class MyAccountApi
      */
     public function getBankDetailsMyBankGetAsync(
         string $contentType = self::contentTypes['getBankDetailsMyBankGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getBankDetailsMyBankGetAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
@@ -860,8 +848,7 @@ class MyAccountApi
      */
     public function getBankDetailsMyBankGetAsyncWithHttpInfo(
         string $contentType = self::contentTypes['getBankDetailsMyBankGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\BankResponseSchema';
         $request = $this->getBankDetailsMyBankGetRequest($contentType);
 
@@ -869,7 +856,7 @@ class MyAccountApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -911,8 +898,7 @@ class MyAccountApi
      */
     public function getBankDetailsMyBankGetRequest(
         string $contentType = self::contentTypes['getBankDetailsMyBankGet'][0]
-    ): Request
-    {
+    ): Request {
 
 
         $resourcePath = '/my/bank';
@@ -1002,8 +988,7 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getBankItemsMyBankItemsGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageSimpleItemSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageSimpleItemSchema {
         list($response) = $this->getBankItemsMyBankItemsGetWithHttpInfo($item_code, $page, $size, $contentType);
         return $response;
     }
@@ -1027,8 +1012,7 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getBankItemsMyBankItemsGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getBankItemsMyBankItemsGetRequest($item_code, $page, $size, $contentType);
 
         try {
@@ -1053,7 +1037,7 @@ class MyAccountApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageSimpleItemSchema',
@@ -1061,7 +1045,7 @@ class MyAccountApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1092,7 +1076,7 @@ class MyAccountApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1115,8 +1099,7 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getBankItemsMyBankItemsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getBankItemsMyBankItemsGetAsyncWithHttpInfo($item_code, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -1143,8 +1126,7 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getBankItemsMyBankItemsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageSimpleItemSchema';
         $request = $this->getBankItemsMyBankItemsGetRequest($item_code, $page, $size, $contentType);
 
@@ -1152,7 +1134,7 @@ class MyAccountApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1200,24 +1182,23 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getBankItemsMyBankItemsGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($item_code !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $item_code)) {
             throw new InvalidArgumentException("invalid value for \"item_code\" when calling MyAccountApi.getBankItemsMyBankItemsGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling MyAccountApi.getBankItemsMyBankItemsGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MyAccountApi.getBankItemsMyBankItemsGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MyAccountApi.getBankItemsMyBankItemsGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/my/bank/items';
         $formParams = [];
@@ -1335,8 +1316,7 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellHistoryMyGrandexchangeHistoryGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageGeOrderHistorySchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageGeOrderHistorySchema {
         list($response) = $this->getGeSellHistoryMyGrandexchangeHistoryGetWithHttpInfo($id, $code, $page, $size, $contentType);
         return $response;
     }
@@ -1362,8 +1342,7 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellHistoryMyGrandexchangeHistoryGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getGeSellHistoryMyGrandexchangeHistoryGetRequest($id, $code, $page, $size, $contentType);
 
         try {
@@ -1388,7 +1367,7 @@ class MyAccountApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageGeOrderHistorySchema',
@@ -1396,7 +1375,7 @@ class MyAccountApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1427,7 +1406,7 @@ class MyAccountApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1452,8 +1431,7 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellHistoryMyGrandexchangeHistoryGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getGeSellHistoryMyGrandexchangeHistoryGetAsyncWithHttpInfo($id, $code, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -1482,8 +1460,7 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellHistoryMyGrandexchangeHistoryGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageGeOrderHistorySchema';
         $request = $this->getGeSellHistoryMyGrandexchangeHistoryGetRequest($id, $code, $page, $size, $contentType);
 
@@ -1491,7 +1468,7 @@ class MyAccountApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1541,28 +1518,27 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellHistoryMyGrandexchangeHistoryGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($id !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $id)) {
             throw new InvalidArgumentException("invalid value for \"id\" when calling MyAccountApi.getGeSellHistoryMyGrandexchangeHistoryGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($code !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $code)) {
             throw new InvalidArgumentException("invalid value for \"code\" when calling MyAccountApi.getGeSellHistoryMyGrandexchangeHistoryGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling MyAccountApi.getGeSellHistoryMyGrandexchangeHistoryGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MyAccountApi.getGeSellHistoryMyGrandexchangeHistoryGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MyAccountApi.getGeSellHistoryMyGrandexchangeHistoryGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/my/grandexchange/history';
         $formParams = [];
@@ -1687,8 +1663,7 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellOrdersMyGrandexchangeOrdersGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageGEOrderSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageGEOrderSchema {
         list($response) = $this->getGeSellOrdersMyGrandexchangeOrdersGetWithHttpInfo($code, $page, $size, $contentType);
         return $response;
     }
@@ -1712,8 +1687,7 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellOrdersMyGrandexchangeOrdersGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getGeSellOrdersMyGrandexchangeOrdersGetRequest($code, $page, $size, $contentType);
 
         try {
@@ -1738,7 +1712,7 @@ class MyAccountApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageGEOrderSchema',
@@ -1746,7 +1720,7 @@ class MyAccountApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1777,7 +1751,7 @@ class MyAccountApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1800,8 +1774,7 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellOrdersMyGrandexchangeOrdersGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getGeSellOrdersMyGrandexchangeOrdersGetAsyncWithHttpInfo($code, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -1828,8 +1801,7 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellOrdersMyGrandexchangeOrdersGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageGEOrderSchema';
         $request = $this->getGeSellOrdersMyGrandexchangeOrdersGetRequest($code, $page, $size, $contentType);
 
@@ -1837,7 +1809,7 @@ class MyAccountApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1885,24 +1857,23 @@ class MyAccountApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellOrdersMyGrandexchangeOrdersGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($code !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $code)) {
             throw new InvalidArgumentException("invalid value for \"code\" when calling MyAccountApi.getGeSellOrdersMyGrandexchangeOrdersGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling MyAccountApi.getGeSellOrdersMyGrandexchangeOrdersGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MyAccountApi.getGeSellOrdersMyGrandexchangeOrdersGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MyAccountApi.getGeSellOrdersMyGrandexchangeOrdersGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/my/grandexchange/orders';
         $formParams = [];
@@ -2023,7 +1994,7 @@ class MyAccountApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

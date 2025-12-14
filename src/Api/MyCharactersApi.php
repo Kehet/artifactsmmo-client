@@ -1,4 +1,5 @@
 <?php
+
 /**
  * MyCharactersApi
  * PHP version 8.1
@@ -233,8 +234,7 @@ class MyCharactersApi
     public function actionAcceptNewTaskMyNameActionTaskNewPost(
         string $name,
         string $contentType = self::contentTypes['actionAcceptNewTaskMyNameActionTaskNewPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\TaskResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\TaskResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionAcceptNewTaskMyNameActionTaskNewPostWithHttpInfo($name, $contentType);
         return $response;
     }
@@ -254,8 +254,7 @@ class MyCharactersApi
     public function actionAcceptNewTaskMyNameActionTaskNewPostWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionAcceptNewTaskMyNameActionTaskNewPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionAcceptNewTaskMyNameActionTaskNewPostRequest($name, $contentType);
 
         try {
@@ -280,7 +279,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\TaskResponseSchema',
@@ -324,7 +323,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -403,7 +402,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -422,8 +421,7 @@ class MyCharactersApi
     public function actionAcceptNewTaskMyNameActionTaskNewPostAsync(
         string $name,
         string $contentType = self::contentTypes['actionAcceptNewTaskMyNameActionTaskNewPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionAcceptNewTaskMyNameActionTaskNewPostAsyncWithHttpInfo($name, $contentType)
             ->then(
                 function ($response) {
@@ -446,8 +444,7 @@ class MyCharactersApi
     public function actionAcceptNewTaskMyNameActionTaskNewPostAsyncWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionAcceptNewTaskMyNameActionTaskNewPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\TaskResponseSchema';
         $request = $this->actionAcceptNewTaskMyNameActionTaskNewPostRequest($name, $contentType);
 
@@ -455,7 +452,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -499,8 +496,7 @@ class MyCharactersApi
     public function actionAcceptNewTaskMyNameActionTaskNewPostRequest(
         string $name,
         string $contentType = self::contentTypes['actionAcceptNewTaskMyNameActionTaskNewPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -511,7 +507,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionAcceptNewTaskMyNameActionTaskNewPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/my/{name}/action/task/new';
         $formParams = [];
@@ -604,8 +600,7 @@ class MyCharactersApi
     public function actionBuyBankExpansionMyNameActionBankBuyExpansionPost(
         string $name,
         string $contentType = self::contentTypes['actionBuyBankExpansionMyNameActionBankBuyExpansionPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\BankExtensionTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\BankExtensionTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionBuyBankExpansionMyNameActionBankBuyExpansionPostWithHttpInfo($name, $contentType);
         return $response;
     }
@@ -625,8 +620,7 @@ class MyCharactersApi
     public function actionBuyBankExpansionMyNameActionBankBuyExpansionPostWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionBuyBankExpansionMyNameActionBankBuyExpansionPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionBuyBankExpansionMyNameActionBankBuyExpansionPostRequest($name, $contentType);
 
         try {
@@ -651,7 +645,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\BankExtensionTransactionResponseSchema',
@@ -695,7 +689,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -774,7 +768,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -793,8 +787,7 @@ class MyCharactersApi
     public function actionBuyBankExpansionMyNameActionBankBuyExpansionPostAsync(
         string $name,
         string $contentType = self::contentTypes['actionBuyBankExpansionMyNameActionBankBuyExpansionPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionBuyBankExpansionMyNameActionBankBuyExpansionPostAsyncWithHttpInfo($name, $contentType)
             ->then(
                 function ($response) {
@@ -817,8 +810,7 @@ class MyCharactersApi
     public function actionBuyBankExpansionMyNameActionBankBuyExpansionPostAsyncWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionBuyBankExpansionMyNameActionBankBuyExpansionPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\BankExtensionTransactionResponseSchema';
         $request = $this->actionBuyBankExpansionMyNameActionBankBuyExpansionPostRequest($name, $contentType);
 
@@ -826,7 +818,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -870,8 +862,7 @@ class MyCharactersApi
     public function actionBuyBankExpansionMyNameActionBankBuyExpansionPostRequest(
         string $name,
         string $contentType = self::contentTypes['actionBuyBankExpansionMyNameActionBankBuyExpansionPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -882,7 +873,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionBuyBankExpansionMyNameActionBankBuyExpansionPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/my/{name}/action/bank/buy_expansion';
         $formParams = [];
@@ -977,8 +968,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\ChangeSkinCharacterSchema $change_skin_character_schema,
         string $contentType = self::contentTypes['actionChangeSkinMyNameActionChangeSkinPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\ChangeSkinResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\ChangeSkinResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionChangeSkinMyNameActionChangeSkinPostWithHttpInfo($name, $change_skin_character_schema, $contentType);
         return $response;
     }
@@ -1000,8 +990,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\ChangeSkinCharacterSchema $change_skin_character_schema,
         string $contentType = self::contentTypes['actionChangeSkinMyNameActionChangeSkinPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionChangeSkinMyNameActionChangeSkinPostRequest($name, $change_skin_character_schema, $contentType);
 
         try {
@@ -1026,7 +1015,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\ChangeSkinResponseSchema',
@@ -1058,7 +1047,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1121,7 +1110,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1142,8 +1131,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\ChangeSkinCharacterSchema $change_skin_character_schema,
         string $contentType = self::contentTypes['actionChangeSkinMyNameActionChangeSkinPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionChangeSkinMyNameActionChangeSkinPostAsyncWithHttpInfo($name, $change_skin_character_schema, $contentType)
             ->then(
                 function ($response) {
@@ -1168,8 +1156,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\ChangeSkinCharacterSchema $change_skin_character_schema,
         string $contentType = self::contentTypes['actionChangeSkinMyNameActionChangeSkinPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\ChangeSkinResponseSchema';
         $request = $this->actionChangeSkinMyNameActionChangeSkinPostRequest($name, $change_skin_character_schema, $contentType);
 
@@ -1177,7 +1164,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1223,8 +1210,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\ChangeSkinCharacterSchema $change_skin_character_schema,
         string $contentType = self::contentTypes['actionChangeSkinMyNameActionChangeSkinPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -1235,7 +1221,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionChangeSkinMyNameActionChangeSkinPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'change_skin_character_schema' is set
         if ($change_skin_character_schema === null || (is_array($change_skin_character_schema) && count($change_skin_character_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -1342,8 +1328,7 @@ class MyCharactersApi
     public function actionCompleteTaskMyNameActionTaskCompletePost(
         string $name,
         string $contentType = self::contentTypes['actionCompleteTaskMyNameActionTaskCompletePost'][0]
-    ): \Kehet\ArtifactsMMO\Model\RewardDataResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\RewardDataResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionCompleteTaskMyNameActionTaskCompletePostWithHttpInfo($name, $contentType);
         return $response;
     }
@@ -1363,8 +1348,7 @@ class MyCharactersApi
     public function actionCompleteTaskMyNameActionTaskCompletePostWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionCompleteTaskMyNameActionTaskCompletePost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionCompleteTaskMyNameActionTaskCompletePostRequest($name, $contentType);
 
         try {
@@ -1389,7 +1373,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\RewardDataResponseSchema',
@@ -1445,7 +1429,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1540,7 +1524,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1559,8 +1543,7 @@ class MyCharactersApi
     public function actionCompleteTaskMyNameActionTaskCompletePostAsync(
         string $name,
         string $contentType = self::contentTypes['actionCompleteTaskMyNameActionTaskCompletePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionCompleteTaskMyNameActionTaskCompletePostAsyncWithHttpInfo($name, $contentType)
             ->then(
                 function ($response) {
@@ -1583,8 +1566,7 @@ class MyCharactersApi
     public function actionCompleteTaskMyNameActionTaskCompletePostAsyncWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionCompleteTaskMyNameActionTaskCompletePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\RewardDataResponseSchema';
         $request = $this->actionCompleteTaskMyNameActionTaskCompletePostRequest($name, $contentType);
 
@@ -1592,7 +1574,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1636,8 +1618,7 @@ class MyCharactersApi
     public function actionCompleteTaskMyNameActionTaskCompletePostRequest(
         string $name,
         string $contentType = self::contentTypes['actionCompleteTaskMyNameActionTaskCompletePost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -1648,7 +1629,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionCompleteTaskMyNameActionTaskCompletePost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/my/{name}/action/task/complete';
         $formParams = [];
@@ -1743,8 +1724,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\CraftingSchema $crafting_schema,
         string $contentType = self::contentTypes['actionCraftingMyNameActionCraftingPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\SkillResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\SkillResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionCraftingMyNameActionCraftingPostWithHttpInfo($name, $crafting_schema, $contentType);
         return $response;
     }
@@ -1766,8 +1746,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\CraftingSchema $crafting_schema,
         string $contentType = self::contentTypes['actionCraftingMyNameActionCraftingPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionCraftingMyNameActionCraftingPostRequest($name, $crafting_schema, $contentType);
 
         try {
@@ -1792,7 +1771,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\SkillResponseSchema',
@@ -1854,7 +1833,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1957,7 +1936,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1978,8 +1957,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\CraftingSchema $crafting_schema,
         string $contentType = self::contentTypes['actionCraftingMyNameActionCraftingPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionCraftingMyNameActionCraftingPostAsyncWithHttpInfo($name, $crafting_schema, $contentType)
             ->then(
                 function ($response) {
@@ -2004,8 +1982,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\CraftingSchema $crafting_schema,
         string $contentType = self::contentTypes['actionCraftingMyNameActionCraftingPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\SkillResponseSchema';
         $request = $this->actionCraftingMyNameActionCraftingPostRequest($name, $crafting_schema, $contentType);
 
@@ -2013,7 +1990,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2059,8 +2036,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\CraftingSchema $crafting_schema,
         string $contentType = self::contentTypes['actionCraftingMyNameActionCraftingPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -2071,7 +2047,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionCraftingMyNameActionCraftingPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'crafting_schema' is set
         if ($crafting_schema === null || (is_array($crafting_schema) && count($crafting_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -2180,8 +2156,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionDeleteItemMyNameActionDeletePost'][0]
-    ): \Kehet\ArtifactsMMO\Model\DeleteItemResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DeleteItemResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionDeleteItemMyNameActionDeletePostWithHttpInfo($name, $simple_item_schema, $contentType);
         return $response;
     }
@@ -2203,8 +2178,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionDeleteItemMyNameActionDeletePost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionDeleteItemMyNameActionDeletePostRequest($name, $simple_item_schema, $contentType);
 
         try {
@@ -2229,7 +2203,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DeleteItemResponseSchema',
@@ -2267,7 +2241,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -2338,7 +2312,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -2359,8 +2333,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionDeleteItemMyNameActionDeletePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionDeleteItemMyNameActionDeletePostAsyncWithHttpInfo($name, $simple_item_schema, $contentType)
             ->then(
                 function ($response) {
@@ -2385,8 +2358,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionDeleteItemMyNameActionDeletePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DeleteItemResponseSchema';
         $request = $this->actionDeleteItemMyNameActionDeletePostRequest($name, $simple_item_schema, $contentType);
 
@@ -2394,7 +2366,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2440,8 +2412,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionDeleteItemMyNameActionDeletePost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -2452,7 +2423,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionDeleteItemMyNameActionDeletePost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'simple_item_schema' is set
         if ($simple_item_schema === null || (is_array($simple_item_schema) && count($simple_item_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -2561,8 +2532,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DepositWithdrawGoldSchema $deposit_withdraw_gold_schema,
         string $contentType = self::contentTypes['actionDepositBankGoldMyNameActionBankDepositGoldPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\BankGoldTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\BankGoldTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionDepositBankGoldMyNameActionBankDepositGoldPostWithHttpInfo($name, $deposit_withdraw_gold_schema, $contentType);
         return $response;
     }
@@ -2584,8 +2554,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DepositWithdrawGoldSchema $deposit_withdraw_gold_schema,
         string $contentType = self::contentTypes['actionDepositBankGoldMyNameActionBankDepositGoldPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionDepositBankGoldMyNameActionBankDepositGoldPostRequest($name, $deposit_withdraw_gold_schema, $contentType);
 
         try {
@@ -2610,7 +2579,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\BankGoldTransactionResponseSchema',
@@ -2660,7 +2629,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -2747,7 +2716,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -2768,8 +2737,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DepositWithdrawGoldSchema $deposit_withdraw_gold_schema,
         string $contentType = self::contentTypes['actionDepositBankGoldMyNameActionBankDepositGoldPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionDepositBankGoldMyNameActionBankDepositGoldPostAsyncWithHttpInfo($name, $deposit_withdraw_gold_schema, $contentType)
             ->then(
                 function ($response) {
@@ -2794,8 +2762,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DepositWithdrawGoldSchema $deposit_withdraw_gold_schema,
         string $contentType = self::contentTypes['actionDepositBankGoldMyNameActionBankDepositGoldPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\BankGoldTransactionResponseSchema';
         $request = $this->actionDepositBankGoldMyNameActionBankDepositGoldPostRequest($name, $deposit_withdraw_gold_schema, $contentType);
 
@@ -2803,7 +2770,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -2849,8 +2816,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DepositWithdrawGoldSchema $deposit_withdraw_gold_schema,
         string $contentType = self::contentTypes['actionDepositBankGoldMyNameActionBankDepositGoldPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -2861,7 +2827,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionDepositBankGoldMyNameActionBankDepositGoldPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'deposit_withdraw_gold_schema' is set
         if ($deposit_withdraw_gold_schema === null || (is_array($deposit_withdraw_gold_schema) && count($deposit_withdraw_gold_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -2970,8 +2936,7 @@ class MyCharactersApi
         string $name,
         array $simple_item_schema,
         string $contentType = self::contentTypes['actionDepositBankItemMyNameActionBankDepositItemPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\BankItemTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\BankItemTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionDepositBankItemMyNameActionBankDepositItemPostWithHttpInfo($name, $simple_item_schema, $contentType);
         return $response;
     }
@@ -2993,8 +2958,7 @@ class MyCharactersApi
         string $name,
         array $simple_item_schema,
         string $contentType = self::contentTypes['actionDepositBankItemMyNameActionBankDepositItemPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionDepositBankItemMyNameActionBankDepositItemPostRequest($name, $simple_item_schema, $contentType);
 
         try {
@@ -3019,7 +2983,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\BankItemTransactionResponseSchema',
@@ -3081,7 +3045,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -3184,7 +3148,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -3205,8 +3169,7 @@ class MyCharactersApi
         string $name,
         array $simple_item_schema,
         string $contentType = self::contentTypes['actionDepositBankItemMyNameActionBankDepositItemPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionDepositBankItemMyNameActionBankDepositItemPostAsyncWithHttpInfo($name, $simple_item_schema, $contentType)
             ->then(
                 function ($response) {
@@ -3231,8 +3194,7 @@ class MyCharactersApi
         string $name,
         array $simple_item_schema,
         string $contentType = self::contentTypes['actionDepositBankItemMyNameActionBankDepositItemPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\BankItemTransactionResponseSchema';
         $request = $this->actionDepositBankItemMyNameActionBankDepositItemPostRequest($name, $simple_item_schema, $contentType);
 
@@ -3240,7 +3202,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3286,8 +3248,7 @@ class MyCharactersApi
         string $name,
         array $simple_item_schema,
         string $contentType = self::contentTypes['actionDepositBankItemMyNameActionBankDepositItemPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -3298,7 +3259,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionDepositBankItemMyNameActionBankDepositItemPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'simple_item_schema' is set
         if ($simple_item_schema === null || (is_array($simple_item_schema) && count($simple_item_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -3407,8 +3368,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\EquipSchema $equip_schema,
         string $contentType = self::contentTypes['actionEquipItemMyNameActionEquipPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\EquipmentResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\EquipmentResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionEquipItemMyNameActionEquipPostWithHttpInfo($name, $equip_schema, $contentType);
         return $response;
     }
@@ -3430,8 +3390,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\EquipSchema $equip_schema,
         string $contentType = self::contentTypes['actionEquipItemMyNameActionEquipPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionEquipItemMyNameActionEquipPostRequest($name, $equip_schema, $contentType);
 
         try {
@@ -3456,7 +3415,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\EquipmentResponseSchema',
@@ -3536,7 +3495,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -3663,7 +3622,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -3684,8 +3643,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\EquipSchema $equip_schema,
         string $contentType = self::contentTypes['actionEquipItemMyNameActionEquipPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionEquipItemMyNameActionEquipPostAsyncWithHttpInfo($name, $equip_schema, $contentType)
             ->then(
                 function ($response) {
@@ -3710,8 +3668,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\EquipSchema $equip_schema,
         string $contentType = self::contentTypes['actionEquipItemMyNameActionEquipPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\EquipmentResponseSchema';
         $request = $this->actionEquipItemMyNameActionEquipPostRequest($name, $equip_schema, $contentType);
 
@@ -3719,7 +3676,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -3765,8 +3722,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\EquipSchema $equip_schema,
         string $contentType = self::contentTypes['actionEquipItemMyNameActionEquipPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -3777,7 +3733,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionEquipItemMyNameActionEquipPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'equip_schema' is set
         if ($equip_schema === null || (is_array($equip_schema) && count($equip_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -3886,8 +3842,7 @@ class MyCharactersApi
         string $name,
         ?\Kehet\ArtifactsMMO\Model\FightRequestSchema $fight_request_schema = null,
         string $contentType = self::contentTypes['actionFightMyNameActionFightPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\CharacterFightResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\CharacterFightResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionFightMyNameActionFightPostWithHttpInfo($name, $fight_request_schema, $contentType);
         return $response;
     }
@@ -3909,8 +3864,7 @@ class MyCharactersApi
         string $name,
         ?\Kehet\ArtifactsMMO\Model\FightRequestSchema $fight_request_schema = null,
         string $contentType = self::contentTypes['actionFightMyNameActionFightPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionFightMyNameActionFightPostRequest($name, $fight_request_schema, $contentType);
 
         try {
@@ -3935,7 +3889,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\CharacterFightResponseSchema',
@@ -3979,7 +3933,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -4058,7 +4012,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -4079,8 +4033,7 @@ class MyCharactersApi
         string $name,
         ?\Kehet\ArtifactsMMO\Model\FightRequestSchema $fight_request_schema = null,
         string $contentType = self::contentTypes['actionFightMyNameActionFightPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionFightMyNameActionFightPostAsyncWithHttpInfo($name, $fight_request_schema, $contentType)
             ->then(
                 function ($response) {
@@ -4105,8 +4058,7 @@ class MyCharactersApi
         string $name,
         ?\Kehet\ArtifactsMMO\Model\FightRequestSchema $fight_request_schema = null,
         string $contentType = self::contentTypes['actionFightMyNameActionFightPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\CharacterFightResponseSchema';
         $request = $this->actionFightMyNameActionFightPostRequest($name, $fight_request_schema, $contentType);
 
@@ -4114,7 +4066,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -4160,8 +4112,7 @@ class MyCharactersApi
         string $name,
         ?\Kehet\ArtifactsMMO\Model\FightRequestSchema $fight_request_schema = null,
         string $contentType = self::contentTypes['actionFightMyNameActionFightPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -4172,7 +4123,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionFightMyNameActionFightPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
 
         $resourcePath = '/my/{name}/action/fight';
@@ -4273,8 +4224,7 @@ class MyCharactersApi
     public function actionGatheringMyNameActionGatheringPost(
         string $name,
         string $contentType = self::contentTypes['actionGatheringMyNameActionGatheringPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\SkillResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\SkillResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionGatheringMyNameActionGatheringPostWithHttpInfo($name, $contentType);
         return $response;
     }
@@ -4294,8 +4244,7 @@ class MyCharactersApi
     public function actionGatheringMyNameActionGatheringPostWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionGatheringMyNameActionGatheringPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionGatheringMyNameActionGatheringPostRequest($name, $contentType);
 
         try {
@@ -4320,7 +4269,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\SkillResponseSchema',
@@ -4370,7 +4319,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -4457,7 +4406,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -4476,8 +4425,7 @@ class MyCharactersApi
     public function actionGatheringMyNameActionGatheringPostAsync(
         string $name,
         string $contentType = self::contentTypes['actionGatheringMyNameActionGatheringPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionGatheringMyNameActionGatheringPostAsyncWithHttpInfo($name, $contentType)
             ->then(
                 function ($response) {
@@ -4500,8 +4448,7 @@ class MyCharactersApi
     public function actionGatheringMyNameActionGatheringPostAsyncWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionGatheringMyNameActionGatheringPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\SkillResponseSchema';
         $request = $this->actionGatheringMyNameActionGatheringPostRequest($name, $contentType);
 
@@ -4509,7 +4456,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -4553,8 +4500,7 @@ class MyCharactersApi
     public function actionGatheringMyNameActionGatheringPostRequest(
         string $name,
         string $contentType = self::contentTypes['actionGatheringMyNameActionGatheringPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -4565,7 +4511,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionGatheringMyNameActionGatheringPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/my/{name}/action/gathering';
         $formParams = [];
@@ -4660,8 +4606,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GEBuyOrderSchema $ge_buy_order_schema,
         string $contentType = self::contentTypes['actionGeBuyItemMyNameActionGrandexchangeBuyPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\GETransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\GETransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionGeBuyItemMyNameActionGrandexchangeBuyPostWithHttpInfo($name, $ge_buy_order_schema, $contentType);
         return $response;
     }
@@ -4683,8 +4628,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GEBuyOrderSchema $ge_buy_order_schema,
         string $contentType = self::contentTypes['actionGeBuyItemMyNameActionGrandexchangeBuyPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionGeBuyItemMyNameActionGrandexchangeBuyPostRequest($name, $ge_buy_order_schema, $contentType);
 
         try {
@@ -4709,7 +4653,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\GETransactionResponseSchema',
@@ -4783,7 +4727,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -4902,7 +4846,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -4923,8 +4867,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GEBuyOrderSchema $ge_buy_order_schema,
         string $contentType = self::contentTypes['actionGeBuyItemMyNameActionGrandexchangeBuyPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionGeBuyItemMyNameActionGrandexchangeBuyPostAsyncWithHttpInfo($name, $ge_buy_order_schema, $contentType)
             ->then(
                 function ($response) {
@@ -4949,8 +4892,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GEBuyOrderSchema $ge_buy_order_schema,
         string $contentType = self::contentTypes['actionGeBuyItemMyNameActionGrandexchangeBuyPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\GETransactionResponseSchema';
         $request = $this->actionGeBuyItemMyNameActionGrandexchangeBuyPostRequest($name, $ge_buy_order_schema, $contentType);
 
@@ -4958,7 +4900,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -5004,8 +4946,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GEBuyOrderSchema $ge_buy_order_schema,
         string $contentType = self::contentTypes['actionGeBuyItemMyNameActionGrandexchangeBuyPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -5016,7 +4957,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionGeBuyItemMyNameActionGrandexchangeBuyPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'ge_buy_order_schema' is set
         if ($ge_buy_order_schema === null || (is_array($ge_buy_order_schema) && count($ge_buy_order_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -5125,8 +5066,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GECancelOrderSchema $ge_cancel_order_schema,
         string $contentType = self::contentTypes['actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\GETransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\GETransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionGeCancelSellOrderMyNameActionGrandexchangeCancelPostWithHttpInfo($name, $ge_cancel_order_schema, $contentType);
         return $response;
     }
@@ -5148,8 +5088,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GECancelOrderSchema $ge_cancel_order_schema,
         string $contentType = self::contentTypes['actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionGeCancelSellOrderMyNameActionGrandexchangeCancelPostRequest($name, $ge_cancel_order_schema, $contentType);
 
         try {
@@ -5174,7 +5113,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\GETransactionResponseSchema',
@@ -5236,7 +5175,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -5339,7 +5278,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -5360,8 +5299,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GECancelOrderSchema $ge_cancel_order_schema,
         string $contentType = self::contentTypes['actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionGeCancelSellOrderMyNameActionGrandexchangeCancelPostAsyncWithHttpInfo($name, $ge_cancel_order_schema, $contentType)
             ->then(
                 function ($response) {
@@ -5386,8 +5324,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GECancelOrderSchema $ge_cancel_order_schema,
         string $contentType = self::contentTypes['actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\GETransactionResponseSchema';
         $request = $this->actionGeCancelSellOrderMyNameActionGrandexchangeCancelPostRequest($name, $ge_cancel_order_schema, $contentType);
 
@@ -5395,7 +5332,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -5441,8 +5378,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GECancelOrderSchema $ge_cancel_order_schema,
         string $contentType = self::contentTypes['actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -5453,7 +5389,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionGeCancelSellOrderMyNameActionGrandexchangeCancelPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'ge_cancel_order_schema' is set
         if ($ge_cancel_order_schema === null || (is_array($ge_cancel_order_schema) && count($ge_cancel_order_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -5562,8 +5498,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GEOrderCreationrSchema $ge_order_creationr_schema,
         string $contentType = self::contentTypes['actionGeCreateSellOrderMyNameActionGrandexchangeSellPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\GECreateOrderTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\GECreateOrderTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionGeCreateSellOrderMyNameActionGrandexchangeSellPostWithHttpInfo($name, $ge_order_creationr_schema, $contentType);
         return $response;
     }
@@ -5585,8 +5520,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GEOrderCreationrSchema $ge_order_creationr_schema,
         string $contentType = self::contentTypes['actionGeCreateSellOrderMyNameActionGrandexchangeSellPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionGeCreateSellOrderMyNameActionGrandexchangeSellPostRequest($name, $ge_order_creationr_schema, $contentType);
 
         try {
@@ -5611,7 +5545,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\GECreateOrderTransactionResponseSchema',
@@ -5679,7 +5613,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -5790,7 +5724,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -5811,8 +5745,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GEOrderCreationrSchema $ge_order_creationr_schema,
         string $contentType = self::contentTypes['actionGeCreateSellOrderMyNameActionGrandexchangeSellPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionGeCreateSellOrderMyNameActionGrandexchangeSellPostAsyncWithHttpInfo($name, $ge_order_creationr_schema, $contentType)
             ->then(
                 function ($response) {
@@ -5837,8 +5770,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GEOrderCreationrSchema $ge_order_creationr_schema,
         string $contentType = self::contentTypes['actionGeCreateSellOrderMyNameActionGrandexchangeSellPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\GECreateOrderTransactionResponseSchema';
         $request = $this->actionGeCreateSellOrderMyNameActionGrandexchangeSellPostRequest($name, $ge_order_creationr_schema, $contentType);
 
@@ -5846,7 +5778,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -5892,8 +5824,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GEOrderCreationrSchema $ge_order_creationr_schema,
         string $contentType = self::contentTypes['actionGeCreateSellOrderMyNameActionGrandexchangeSellPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -5904,7 +5835,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionGeCreateSellOrderMyNameActionGrandexchangeSellPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'ge_order_creationr_schema' is set
         if ($ge_order_creationr_schema === null || (is_array($ge_order_creationr_schema) && count($ge_order_creationr_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -6013,8 +5944,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GiveGoldSchema $give_gold_schema,
         string $contentType = self::contentTypes['actionGiveGoldMyNameActionGiveGoldPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\GiveGoldResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\GiveGoldResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionGiveGoldMyNameActionGiveGoldPostWithHttpInfo($name, $give_gold_schema, $contentType);
         return $response;
     }
@@ -6036,8 +5966,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GiveGoldSchema $give_gold_schema,
         string $contentType = self::contentTypes['actionGiveGoldMyNameActionGiveGoldPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionGiveGoldMyNameActionGiveGoldPostRequest($name, $give_gold_schema, $contentType);
 
         try {
@@ -6062,7 +5991,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\GiveGoldResponseSchema',
@@ -6100,7 +6029,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -6171,7 +6100,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -6192,8 +6121,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GiveGoldSchema $give_gold_schema,
         string $contentType = self::contentTypes['actionGiveGoldMyNameActionGiveGoldPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionGiveGoldMyNameActionGiveGoldPostAsyncWithHttpInfo($name, $give_gold_schema, $contentType)
             ->then(
                 function ($response) {
@@ -6218,8 +6146,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GiveGoldSchema $give_gold_schema,
         string $contentType = self::contentTypes['actionGiveGoldMyNameActionGiveGoldPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\GiveGoldResponseSchema';
         $request = $this->actionGiveGoldMyNameActionGiveGoldPostRequest($name, $give_gold_schema, $contentType);
 
@@ -6227,7 +6154,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -6273,8 +6200,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GiveGoldSchema $give_gold_schema,
         string $contentType = self::contentTypes['actionGiveGoldMyNameActionGiveGoldPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -6285,7 +6211,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionGiveGoldMyNameActionGiveGoldPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'give_gold_schema' is set
         if ($give_gold_schema === null || (is_array($give_gold_schema) && count($give_gold_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -6394,8 +6320,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GiveItemsSchema $give_items_schema,
         string $contentType = self::contentTypes['actionGiveItemsMyNameActionGiveItemPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\GiveItemResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\GiveItemResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionGiveItemsMyNameActionGiveItemPostWithHttpInfo($name, $give_items_schema, $contentType);
         return $response;
     }
@@ -6417,8 +6342,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GiveItemsSchema $give_items_schema,
         string $contentType = self::contentTypes['actionGiveItemsMyNameActionGiveItemPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionGiveItemsMyNameActionGiveItemPostRequest($name, $give_items_schema, $contentType);
 
         try {
@@ -6443,7 +6367,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\GiveItemResponseSchema',
@@ -6493,7 +6417,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -6580,7 +6504,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -6601,8 +6525,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GiveItemsSchema $give_items_schema,
         string $contentType = self::contentTypes['actionGiveItemsMyNameActionGiveItemPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionGiveItemsMyNameActionGiveItemPostAsyncWithHttpInfo($name, $give_items_schema, $contentType)
             ->then(
                 function ($response) {
@@ -6627,8 +6550,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GiveItemsSchema $give_items_schema,
         string $contentType = self::contentTypes['actionGiveItemsMyNameActionGiveItemPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\GiveItemResponseSchema';
         $request = $this->actionGiveItemsMyNameActionGiveItemPostRequest($name, $give_items_schema, $contentType);
 
@@ -6636,7 +6558,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -6682,8 +6604,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\GiveItemsSchema $give_items_schema,
         string $contentType = self::contentTypes['actionGiveItemsMyNameActionGiveItemPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -6694,7 +6615,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionGiveItemsMyNameActionGiveItemPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'give_items_schema' is set
         if ($give_items_schema === null || (is_array($give_items_schema) && count($give_items_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -6803,8 +6724,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DestinationSchema $destination_schema,
         string $contentType = self::contentTypes['actionMoveMyNameActionMovePost'][0]
-    ): \Kehet\ArtifactsMMO\Model\CharacterMovementResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\CharacterMovementResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionMoveMyNameActionMovePostWithHttpInfo($name, $destination_schema, $contentType);
         return $response;
     }
@@ -6826,8 +6746,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DestinationSchema $destination_schema,
         string $contentType = self::contentTypes['actionMoveMyNameActionMovePost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionMoveMyNameActionMovePostRequest($name, $destination_schema, $contentType);
 
         try {
@@ -6852,7 +6771,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\CharacterMovementResponseSchema',
@@ -6914,7 +6833,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -7017,7 +6936,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -7038,8 +6957,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DestinationSchema $destination_schema,
         string $contentType = self::contentTypes['actionMoveMyNameActionMovePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionMoveMyNameActionMovePostAsyncWithHttpInfo($name, $destination_schema, $contentType)
             ->then(
                 function ($response) {
@@ -7064,8 +6982,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DestinationSchema $destination_schema,
         string $contentType = self::contentTypes['actionMoveMyNameActionMovePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\CharacterMovementResponseSchema';
         $request = $this->actionMoveMyNameActionMovePostRequest($name, $destination_schema, $contentType);
 
@@ -7073,7 +6990,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -7119,8 +7036,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DestinationSchema $destination_schema,
         string $contentType = self::contentTypes['actionMoveMyNameActionMovePost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -7131,7 +7047,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionMoveMyNameActionMovePost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'destination_schema' is set
         if ($destination_schema === null || (is_array($destination_schema) && count($destination_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -7240,8 +7156,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\NpcMerchantBuySchema $npc_merchant_buy_schema,
         string $contentType = self::contentTypes['actionNpcBuyItemMyNameActionNpcBuyPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\NpcMerchantTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\NpcMerchantTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionNpcBuyItemMyNameActionNpcBuyPostWithHttpInfo($name, $npc_merchant_buy_schema, $contentType);
         return $response;
     }
@@ -7263,8 +7178,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\NpcMerchantBuySchema $npc_merchant_buy_schema,
         string $contentType = self::contentTypes['actionNpcBuyItemMyNameActionNpcBuyPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionNpcBuyItemMyNameActionNpcBuyPostRequest($name, $npc_merchant_buy_schema, $contentType);
 
         try {
@@ -7289,7 +7203,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\NpcMerchantTransactionResponseSchema',
@@ -7357,7 +7271,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -7468,7 +7382,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -7489,8 +7403,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\NpcMerchantBuySchema $npc_merchant_buy_schema,
         string $contentType = self::contentTypes['actionNpcBuyItemMyNameActionNpcBuyPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionNpcBuyItemMyNameActionNpcBuyPostAsyncWithHttpInfo($name, $npc_merchant_buy_schema, $contentType)
             ->then(
                 function ($response) {
@@ -7515,8 +7428,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\NpcMerchantBuySchema $npc_merchant_buy_schema,
         string $contentType = self::contentTypes['actionNpcBuyItemMyNameActionNpcBuyPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\NpcMerchantTransactionResponseSchema';
         $request = $this->actionNpcBuyItemMyNameActionNpcBuyPostRequest($name, $npc_merchant_buy_schema, $contentType);
 
@@ -7524,7 +7436,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -7570,8 +7482,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\NpcMerchantBuySchema $npc_merchant_buy_schema,
         string $contentType = self::contentTypes['actionNpcBuyItemMyNameActionNpcBuyPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -7582,7 +7493,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionNpcBuyItemMyNameActionNpcBuyPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'npc_merchant_buy_schema' is set
         if ($npc_merchant_buy_schema === null || (is_array($npc_merchant_buy_schema) && count($npc_merchant_buy_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -7691,8 +7602,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\NpcMerchantBuySchema $npc_merchant_buy_schema,
         string $contentType = self::contentTypes['actionNpcSellItemMyNameActionNpcSellPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\NpcMerchantTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\NpcMerchantTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionNpcSellItemMyNameActionNpcSellPostWithHttpInfo($name, $npc_merchant_buy_schema, $contentType);
         return $response;
     }
@@ -7714,8 +7624,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\NpcMerchantBuySchema $npc_merchant_buy_schema,
         string $contentType = self::contentTypes['actionNpcSellItemMyNameActionNpcSellPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionNpcSellItemMyNameActionNpcSellPostRequest($name, $npc_merchant_buy_schema, $contentType);
 
         try {
@@ -7740,7 +7649,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\NpcMerchantTransactionResponseSchema',
@@ -7802,7 +7711,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -7905,7 +7814,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -7926,8 +7835,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\NpcMerchantBuySchema $npc_merchant_buy_schema,
         string $contentType = self::contentTypes['actionNpcSellItemMyNameActionNpcSellPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionNpcSellItemMyNameActionNpcSellPostAsyncWithHttpInfo($name, $npc_merchant_buy_schema, $contentType)
             ->then(
                 function ($response) {
@@ -7952,8 +7860,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\NpcMerchantBuySchema $npc_merchant_buy_schema,
         string $contentType = self::contentTypes['actionNpcSellItemMyNameActionNpcSellPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\NpcMerchantTransactionResponseSchema';
         $request = $this->actionNpcSellItemMyNameActionNpcSellPostRequest($name, $npc_merchant_buy_schema, $contentType);
 
@@ -7961,7 +7868,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -8007,8 +7914,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\NpcMerchantBuySchema $npc_merchant_buy_schema,
         string $contentType = self::contentTypes['actionNpcSellItemMyNameActionNpcSellPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -8019,7 +7925,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionNpcSellItemMyNameActionNpcSellPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'npc_merchant_buy_schema' is set
         if ($npc_merchant_buy_schema === null || (is_array($npc_merchant_buy_schema) && count($npc_merchant_buy_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -8128,8 +8034,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\RecyclingSchema $recycling_schema,
         string $contentType = self::contentTypes['actionRecyclingMyNameActionRecyclingPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\RecyclingResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\RecyclingResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionRecyclingMyNameActionRecyclingPostWithHttpInfo($name, $recycling_schema, $contentType);
         return $response;
     }
@@ -8151,8 +8056,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\RecyclingSchema $recycling_schema,
         string $contentType = self::contentTypes['actionRecyclingMyNameActionRecyclingPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionRecyclingMyNameActionRecyclingPostRequest($name, $recycling_schema, $contentType);
 
         try {
@@ -8177,7 +8081,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\RecyclingResponseSchema',
@@ -8245,7 +8149,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -8356,7 +8260,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -8377,8 +8281,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\RecyclingSchema $recycling_schema,
         string $contentType = self::contentTypes['actionRecyclingMyNameActionRecyclingPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionRecyclingMyNameActionRecyclingPostAsyncWithHttpInfo($name, $recycling_schema, $contentType)
             ->then(
                 function ($response) {
@@ -8403,8 +8306,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\RecyclingSchema $recycling_schema,
         string $contentType = self::contentTypes['actionRecyclingMyNameActionRecyclingPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\RecyclingResponseSchema';
         $request = $this->actionRecyclingMyNameActionRecyclingPostRequest($name, $recycling_schema, $contentType);
 
@@ -8412,7 +8314,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -8458,8 +8360,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\RecyclingSchema $recycling_schema,
         string $contentType = self::contentTypes['actionRecyclingMyNameActionRecyclingPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -8470,7 +8371,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionRecyclingMyNameActionRecyclingPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'recycling_schema' is set
         if ($recycling_schema === null || (is_array($recycling_schema) && count($recycling_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -8577,8 +8478,7 @@ class MyCharactersApi
     public function actionRestMyNameActionRestPost(
         string $name,
         string $contentType = self::contentTypes['actionRestMyNameActionRestPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\CharacterRestResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\CharacterRestResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionRestMyNameActionRestPostWithHttpInfo($name, $contentType);
         return $response;
     }
@@ -8598,8 +8498,7 @@ class MyCharactersApi
     public function actionRestMyNameActionRestPostWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionRestMyNameActionRestPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionRestMyNameActionRestPostRequest($name, $contentType);
 
         try {
@@ -8624,7 +8523,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\CharacterRestResponseSchema',
@@ -8656,7 +8555,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -8719,7 +8618,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -8738,8 +8637,7 @@ class MyCharactersApi
     public function actionRestMyNameActionRestPostAsync(
         string $name,
         string $contentType = self::contentTypes['actionRestMyNameActionRestPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionRestMyNameActionRestPostAsyncWithHttpInfo($name, $contentType)
             ->then(
                 function ($response) {
@@ -8762,8 +8660,7 @@ class MyCharactersApi
     public function actionRestMyNameActionRestPostAsyncWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionRestMyNameActionRestPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\CharacterRestResponseSchema';
         $request = $this->actionRestMyNameActionRestPostRequest($name, $contentType);
 
@@ -8771,7 +8668,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -8815,8 +8712,7 @@ class MyCharactersApi
     public function actionRestMyNameActionRestPostRequest(
         string $name,
         string $contentType = self::contentTypes['actionRestMyNameActionRestPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -8827,7 +8723,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionRestMyNameActionRestPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/my/{name}/action/rest';
         $formParams = [];
@@ -8920,8 +8816,7 @@ class MyCharactersApi
     public function actionTaskCancelMyNameActionTaskCancelPost(
         string $name,
         string $contentType = self::contentTypes['actionTaskCancelMyNameActionTaskCancelPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\TaskCancelledResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\TaskCancelledResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionTaskCancelMyNameActionTaskCancelPostWithHttpInfo($name, $contentType);
         return $response;
     }
@@ -8941,8 +8836,7 @@ class MyCharactersApi
     public function actionTaskCancelMyNameActionTaskCancelPostWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionTaskCancelMyNameActionTaskCancelPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionTaskCancelMyNameActionTaskCancelPostRequest($name, $contentType);
 
         try {
@@ -8967,7 +8861,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\TaskCancelledResponseSchema',
@@ -9011,7 +8905,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -9090,7 +8984,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -9109,8 +9003,7 @@ class MyCharactersApi
     public function actionTaskCancelMyNameActionTaskCancelPostAsync(
         string $name,
         string $contentType = self::contentTypes['actionTaskCancelMyNameActionTaskCancelPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionTaskCancelMyNameActionTaskCancelPostAsyncWithHttpInfo($name, $contentType)
             ->then(
                 function ($response) {
@@ -9133,8 +9026,7 @@ class MyCharactersApi
     public function actionTaskCancelMyNameActionTaskCancelPostAsyncWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionTaskCancelMyNameActionTaskCancelPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\TaskCancelledResponseSchema';
         $request = $this->actionTaskCancelMyNameActionTaskCancelPostRequest($name, $contentType);
 
@@ -9142,7 +9034,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -9186,8 +9078,7 @@ class MyCharactersApi
     public function actionTaskCancelMyNameActionTaskCancelPostRequest(
         string $name,
         string $contentType = self::contentTypes['actionTaskCancelMyNameActionTaskCancelPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -9198,7 +9089,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionTaskCancelMyNameActionTaskCancelPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/my/{name}/action/task/cancel';
         $formParams = [];
@@ -9291,8 +9182,7 @@ class MyCharactersApi
     public function actionTaskExchangeMyNameActionTaskExchangePost(
         string $name,
         string $contentType = self::contentTypes['actionTaskExchangeMyNameActionTaskExchangePost'][0]
-    ): \Kehet\ArtifactsMMO\Model\RewardDataResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\RewardDataResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionTaskExchangeMyNameActionTaskExchangePostWithHttpInfo($name, $contentType);
         return $response;
     }
@@ -9312,8 +9202,7 @@ class MyCharactersApi
     public function actionTaskExchangeMyNameActionTaskExchangePostWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionTaskExchangeMyNameActionTaskExchangePost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionTaskExchangeMyNameActionTaskExchangePostRequest($name, $contentType);
 
         try {
@@ -9338,7 +9227,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\RewardDataResponseSchema',
@@ -9388,7 +9277,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -9475,7 +9364,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -9494,8 +9383,7 @@ class MyCharactersApi
     public function actionTaskExchangeMyNameActionTaskExchangePostAsync(
         string $name,
         string $contentType = self::contentTypes['actionTaskExchangeMyNameActionTaskExchangePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionTaskExchangeMyNameActionTaskExchangePostAsyncWithHttpInfo($name, $contentType)
             ->then(
                 function ($response) {
@@ -9518,8 +9406,7 @@ class MyCharactersApi
     public function actionTaskExchangeMyNameActionTaskExchangePostAsyncWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionTaskExchangeMyNameActionTaskExchangePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\RewardDataResponseSchema';
         $request = $this->actionTaskExchangeMyNameActionTaskExchangePostRequest($name, $contentType);
 
@@ -9527,7 +9414,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -9571,8 +9458,7 @@ class MyCharactersApi
     public function actionTaskExchangeMyNameActionTaskExchangePostRequest(
         string $name,
         string $contentType = self::contentTypes['actionTaskExchangeMyNameActionTaskExchangePost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -9583,7 +9469,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionTaskExchangeMyNameActionTaskExchangePost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/my/{name}/action/task/exchange';
         $formParams = [];
@@ -9678,8 +9564,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionTaskTradeMyNameActionTaskTradePost'][0]
-    ): \Kehet\ArtifactsMMO\Model\TaskTradeResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\TaskTradeResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionTaskTradeMyNameActionTaskTradePostWithHttpInfo($name, $simple_item_schema, $contentType);
         return $response;
     }
@@ -9701,8 +9586,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionTaskTradeMyNameActionTaskTradePost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionTaskTradeMyNameActionTaskTradePostRequest($name, $simple_item_schema, $contentType);
 
         try {
@@ -9727,7 +9611,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\TaskTradeResponseSchema',
@@ -9783,7 +9667,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -9878,7 +9762,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -9899,8 +9783,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionTaskTradeMyNameActionTaskTradePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionTaskTradeMyNameActionTaskTradePostAsyncWithHttpInfo($name, $simple_item_schema, $contentType)
             ->then(
                 function ($response) {
@@ -9925,8 +9808,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionTaskTradeMyNameActionTaskTradePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\TaskTradeResponseSchema';
         $request = $this->actionTaskTradeMyNameActionTaskTradePostRequest($name, $simple_item_schema, $contentType);
 
@@ -9934,7 +9816,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -9980,8 +9862,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionTaskTradeMyNameActionTaskTradePost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -9992,7 +9873,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionTaskTradeMyNameActionTaskTradePost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'simple_item_schema' is set
         if ($simple_item_schema === null || (is_array($simple_item_schema) && count($simple_item_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -10099,8 +9980,7 @@ class MyCharactersApi
     public function actionTransitionMyNameActionTransitionPost(
         string $name,
         string $contentType = self::contentTypes['actionTransitionMyNameActionTransitionPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\CharacterTransitionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\CharacterTransitionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionTransitionMyNameActionTransitionPostWithHttpInfo($name, $contentType);
         return $response;
     }
@@ -10120,8 +10000,7 @@ class MyCharactersApi
     public function actionTransitionMyNameActionTransitionPostWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionTransitionMyNameActionTransitionPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionTransitionMyNameActionTransitionPostRequest($name, $contentType);
 
         try {
@@ -10146,7 +10025,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\CharacterTransitionResponseSchema',
@@ -10202,7 +10081,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -10297,7 +10176,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -10316,8 +10195,7 @@ class MyCharactersApi
     public function actionTransitionMyNameActionTransitionPostAsync(
         string $name,
         string $contentType = self::contentTypes['actionTransitionMyNameActionTransitionPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionTransitionMyNameActionTransitionPostAsyncWithHttpInfo($name, $contentType)
             ->then(
                 function ($response) {
@@ -10340,8 +10218,7 @@ class MyCharactersApi
     public function actionTransitionMyNameActionTransitionPostAsyncWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['actionTransitionMyNameActionTransitionPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\CharacterTransitionResponseSchema';
         $request = $this->actionTransitionMyNameActionTransitionPostRequest($name, $contentType);
 
@@ -10349,7 +10226,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -10393,8 +10270,7 @@ class MyCharactersApi
     public function actionTransitionMyNameActionTransitionPostRequest(
         string $name,
         string $contentType = self::contentTypes['actionTransitionMyNameActionTransitionPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -10405,7 +10281,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionTransitionMyNameActionTransitionPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/my/{name}/action/transition';
         $formParams = [];
@@ -10500,8 +10376,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\UnequipSchema $unequip_schema,
         string $contentType = self::contentTypes['actionUnequipItemMyNameActionUnequipPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\EquipmentResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\EquipmentResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionUnequipItemMyNameActionUnequipPostWithHttpInfo($name, $unequip_schema, $contentType);
         return $response;
     }
@@ -10523,8 +10398,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\UnequipSchema $unequip_schema,
         string $contentType = self::contentTypes['actionUnequipItemMyNameActionUnequipPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionUnequipItemMyNameActionUnequipPostRequest($name, $unequip_schema, $contentType);
 
         try {
@@ -10549,7 +10423,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\EquipmentResponseSchema',
@@ -10611,7 +10485,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -10714,7 +10588,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -10735,8 +10609,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\UnequipSchema $unequip_schema,
         string $contentType = self::contentTypes['actionUnequipItemMyNameActionUnequipPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionUnequipItemMyNameActionUnequipPostAsyncWithHttpInfo($name, $unequip_schema, $contentType)
             ->then(
                 function ($response) {
@@ -10761,8 +10634,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\UnequipSchema $unequip_schema,
         string $contentType = self::contentTypes['actionUnequipItemMyNameActionUnequipPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\EquipmentResponseSchema';
         $request = $this->actionUnequipItemMyNameActionUnequipPostRequest($name, $unequip_schema, $contentType);
 
@@ -10770,7 +10642,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -10816,8 +10688,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\UnequipSchema $unequip_schema,
         string $contentType = self::contentTypes['actionUnequipItemMyNameActionUnequipPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -10828,7 +10699,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionUnequipItemMyNameActionUnequipPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'unequip_schema' is set
         if ($unequip_schema === null || (is_array($unequip_schema) && count($unequip_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -10937,8 +10808,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionUseItemMyNameActionUsePost'][0]
-    ): \Kehet\ArtifactsMMO\Model\UseItemResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\UseItemResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionUseItemMyNameActionUsePostWithHttpInfo($name, $simple_item_schema, $contentType);
         return $response;
     }
@@ -10960,8 +10830,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionUseItemMyNameActionUsePost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionUseItemMyNameActionUsePostRequest($name, $simple_item_schema, $contentType);
 
         try {
@@ -10986,7 +10855,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\UseItemResponseSchema',
@@ -11042,7 +10911,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -11137,7 +11006,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -11158,8 +11027,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionUseItemMyNameActionUsePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionUseItemMyNameActionUsePostAsyncWithHttpInfo($name, $simple_item_schema, $contentType)
             ->then(
                 function ($response) {
@@ -11184,8 +11052,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionUseItemMyNameActionUsePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\UseItemResponseSchema';
         $request = $this->actionUseItemMyNameActionUsePostRequest($name, $simple_item_schema, $contentType);
 
@@ -11193,7 +11060,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -11239,8 +11106,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\SimpleItemSchema $simple_item_schema,
         string $contentType = self::contentTypes['actionUseItemMyNameActionUsePost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -11251,7 +11117,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionUseItemMyNameActionUsePost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'simple_item_schema' is set
         if ($simple_item_schema === null || (is_array($simple_item_schema) && count($simple_item_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -11360,8 +11226,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DepositWithdrawGoldSchema $deposit_withdraw_gold_schema,
         string $contentType = self::contentTypes['actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\BankGoldTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\BankGoldTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionWithdrawBankGoldMyNameActionBankWithdrawGoldPostWithHttpInfo($name, $deposit_withdraw_gold_schema, $contentType);
         return $response;
     }
@@ -11383,8 +11248,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DepositWithdrawGoldSchema $deposit_withdraw_gold_schema,
         string $contentType = self::contentTypes['actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionWithdrawBankGoldMyNameActionBankWithdrawGoldPostRequest($name, $deposit_withdraw_gold_schema, $contentType);
 
         try {
@@ -11409,7 +11273,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\BankGoldTransactionResponseSchema',
@@ -11459,7 +11323,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -11546,7 +11410,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -11567,8 +11431,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DepositWithdrawGoldSchema $deposit_withdraw_gold_schema,
         string $contentType = self::contentTypes['actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionWithdrawBankGoldMyNameActionBankWithdrawGoldPostAsyncWithHttpInfo($name, $deposit_withdraw_gold_schema, $contentType)
             ->then(
                 function ($response) {
@@ -11593,8 +11456,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DepositWithdrawGoldSchema $deposit_withdraw_gold_schema,
         string $contentType = self::contentTypes['actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\BankGoldTransactionResponseSchema';
         $request = $this->actionWithdrawBankGoldMyNameActionBankWithdrawGoldPostRequest($name, $deposit_withdraw_gold_schema, $contentType);
 
@@ -11602,7 +11464,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -11648,8 +11510,7 @@ class MyCharactersApi
         string $name,
         \Kehet\ArtifactsMMO\Model\DepositWithdrawGoldSchema $deposit_withdraw_gold_schema,
         string $contentType = self::contentTypes['actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -11660,7 +11521,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionWithdrawBankGoldMyNameActionBankWithdrawGoldPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'deposit_withdraw_gold_schema' is set
         if ($deposit_withdraw_gold_schema === null || (is_array($deposit_withdraw_gold_schema) && count($deposit_withdraw_gold_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -11769,8 +11630,7 @@ class MyCharactersApi
         string $name,
         array $simple_item_schema,
         string $contentType = self::contentTypes['actionWithdrawBankItemMyNameActionBankWithdrawItemPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\BankItemTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\BankItemTransactionResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->actionWithdrawBankItemMyNameActionBankWithdrawItemPostWithHttpInfo($name, $simple_item_schema, $contentType);
         return $response;
     }
@@ -11792,8 +11652,7 @@ class MyCharactersApi
         string $name,
         array $simple_item_schema,
         string $contentType = self::contentTypes['actionWithdrawBankItemMyNameActionBankWithdrawItemPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->actionWithdrawBankItemMyNameActionBankWithdrawItemPostRequest($name, $simple_item_schema, $contentType);
 
         try {
@@ -11818,7 +11677,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\BankItemTransactionResponseSchema',
@@ -11880,7 +11739,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -11983,7 +11842,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -12004,8 +11863,7 @@ class MyCharactersApi
         string $name,
         array $simple_item_schema,
         string $contentType = self::contentTypes['actionWithdrawBankItemMyNameActionBankWithdrawItemPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->actionWithdrawBankItemMyNameActionBankWithdrawItemPostAsyncWithHttpInfo($name, $simple_item_schema, $contentType)
             ->then(
                 function ($response) {
@@ -12030,8 +11888,7 @@ class MyCharactersApi
         string $name,
         array $simple_item_schema,
         string $contentType = self::contentTypes['actionWithdrawBankItemMyNameActionBankWithdrawItemPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\BankItemTransactionResponseSchema';
         $request = $this->actionWithdrawBankItemMyNameActionBankWithdrawItemPostRequest($name, $simple_item_schema, $contentType);
 
@@ -12039,7 +11896,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -12085,8 +11942,7 @@ class MyCharactersApi
         string $name,
         array $simple_item_schema,
         string $contentType = self::contentTypes['actionWithdrawBankItemMyNameActionBankWithdrawItemPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -12097,7 +11953,7 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.actionWithdrawBankItemMyNameActionBankWithdrawItemPost, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         // verify the required parameter 'simple_item_schema' is set
         if ($simple_item_schema === null || (is_array($simple_item_schema) && count($simple_item_schema) === 0)) {
             throw new InvalidArgumentException(
@@ -12206,8 +12062,7 @@ class MyCharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllCharactersLogsMyLogsGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageLogSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageLogSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getAllCharactersLogsMyLogsGetWithHttpInfo($page, $size, $contentType);
         return $response;
     }
@@ -12229,8 +12084,7 @@ class MyCharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllCharactersLogsMyLogsGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAllCharactersLogsMyLogsGetRequest($page, $size, $contentType);
 
         try {
@@ -12255,7 +12109,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageLogSchema',
@@ -12275,7 +12129,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -12322,7 +12176,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -12343,8 +12197,7 @@ class MyCharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllCharactersLogsMyLogsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAllCharactersLogsMyLogsGetAsyncWithHttpInfo($page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -12369,8 +12222,7 @@ class MyCharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllCharactersLogsMyLogsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageLogSchema';
         $request = $this->getAllCharactersLogsMyLogsGetRequest($page, $size, $contentType);
 
@@ -12378,7 +12230,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -12424,20 +12276,19 @@ class MyCharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllCharactersLogsMyLogsGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling MyCharactersApi.getAllCharactersLogsMyLogsGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MyCharactersApi.getAllCharactersLogsMyLogsGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MyCharactersApi.getAllCharactersLogsMyLogsGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/my/logs';
         $formParams = [];
@@ -12544,8 +12395,7 @@ class MyCharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getCharacterLogsMyLogsNameGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageLogSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageLogSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getCharacterLogsMyLogsNameGetWithHttpInfo($name, $page, $size, $contentType);
         return $response;
     }
@@ -12569,8 +12419,7 @@ class MyCharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getCharacterLogsMyLogsNameGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getCharacterLogsMyLogsNameGetRequest($name, $page, $size, $contentType);
 
         try {
@@ -12595,7 +12444,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageLogSchema',
@@ -12615,7 +12464,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -12662,7 +12511,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -12685,8 +12534,7 @@ class MyCharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getCharacterLogsMyLogsNameGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getCharacterLogsMyLogsNameGetAsyncWithHttpInfo($name, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -12713,8 +12561,7 @@ class MyCharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getCharacterLogsMyLogsNameGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageLogSchema';
         $request = $this->getCharacterLogsMyLogsNameGetRequest($name, $page, $size, $contentType);
 
@@ -12722,7 +12569,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -12770,8 +12617,7 @@ class MyCharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getCharacterLogsMyLogsNameGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -12782,18 +12628,18 @@ class MyCharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MyCharactersApi.getCharacterLogsMyLogsNameGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling MyCharactersApi.getCharacterLogsMyLogsNameGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MyCharactersApi.getCharacterLogsMyLogsNameGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MyCharactersApi.getCharacterLogsMyLogsNameGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/my/logs/{name}';
         $formParams = [];
@@ -12902,8 +12748,7 @@ class MyCharactersApi
      */
     public function getMyCharactersMyCharactersGet(
         string $contentType = self::contentTypes['getMyCharactersMyCharactersGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\MyCharactersListSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\MyCharactersListSchema {
         list($response) = $this->getMyCharactersMyCharactersGetWithHttpInfo($contentType);
         return $response;
     }
@@ -12921,8 +12766,7 @@ class MyCharactersApi
      */
     public function getMyCharactersMyCharactersGetWithHttpInfo(
         string $contentType = self::contentTypes['getMyCharactersMyCharactersGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getMyCharactersMyCharactersGetRequest($contentType);
 
         try {
@@ -12947,7 +12791,7 @@ class MyCharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\MyCharactersListSchema',
@@ -12955,7 +12799,7 @@ class MyCharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -12986,7 +12830,7 @@ class MyCharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -13003,8 +12847,7 @@ class MyCharactersApi
      */
     public function getMyCharactersMyCharactersGetAsync(
         string $contentType = self::contentTypes['getMyCharactersMyCharactersGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getMyCharactersMyCharactersGetAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
@@ -13025,8 +12868,7 @@ class MyCharactersApi
      */
     public function getMyCharactersMyCharactersGetAsyncWithHttpInfo(
         string $contentType = self::contentTypes['getMyCharactersMyCharactersGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\MyCharactersListSchema';
         $request = $this->getMyCharactersMyCharactersGetRequest($contentType);
 
@@ -13034,7 +12876,7 @@ class MyCharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -13076,8 +12918,7 @@ class MyCharactersApi
      */
     public function getMyCharactersMyCharactersGetRequest(
         string $contentType = self::contentTypes['getMyCharactersMyCharactersGet'][0]
-    ): Request
-    {
+    ): Request {
 
 
         $resourcePath = '/my/characters';
@@ -13172,7 +13013,7 @@ class MyCharactersApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

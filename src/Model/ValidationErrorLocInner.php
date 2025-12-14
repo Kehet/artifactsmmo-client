@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ValidationErrorLocInner
  *
@@ -58,7 +59,7 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, JsonSerial
       * @var array<string, string>
       */
     protected static array $openAPITypes = [
-        
+
     ];
 
     /**
@@ -67,7 +68,7 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, JsonSerial
       * @var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        
+
     ];
 
     /**
@@ -76,7 +77,7 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, JsonSerial
       * @var array<string, bool>
       */
     protected static array $openAPINullables = [
-        
+
     ];
 
     /**
@@ -165,7 +166,7 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, JsonSerial
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        
+
     ];
 
     /**
@@ -174,7 +175,7 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, JsonSerial
      * @var array<string, string>
      */
     protected static array $setters = [
-        
+
     ];
 
     /**
@@ -183,7 +184,7 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, JsonSerial
      * @var array<string, string>
      */
     protected static array $getters = [
-        
+
     ];
 
     /**
@@ -349,7 +350,7 @@ class ValidationErrorLocInner implements ModelInterface, ArrayAccess, JsonSerial
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

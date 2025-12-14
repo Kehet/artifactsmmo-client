@@ -1,4 +1,5 @@
 <?php
+
 /**
  * AccountsApi
  * PHP version 8.1
@@ -155,8 +156,7 @@ class AccountsApi
     public function createAccountAccountsCreatePost(
         \Kehet\ArtifactsMMO\Model\AddAccountSchema $add_account_schema,
         string $contentType = self::contentTypes['createAccountAccountsCreatePost'][0]
-    ): \Kehet\ArtifactsMMO\Model\ResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\ResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->createAccountAccountsCreatePostWithHttpInfo($add_account_schema, $contentType);
         return $response;
     }
@@ -176,8 +176,7 @@ class AccountsApi
     public function createAccountAccountsCreatePostWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\AddAccountSchema $add_account_schema,
         string $contentType = self::contentTypes['createAccountAccountsCreatePost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->createAccountAccountsCreatePostRequest($add_account_schema, $contentType);
 
         try {
@@ -202,7 +201,7 @@ class AccountsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\ResponseSchema',
@@ -228,7 +227,7 @@ class AccountsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -283,7 +282,7 @@ class AccountsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -302,8 +301,7 @@ class AccountsApi
     public function createAccountAccountsCreatePostAsync(
         \Kehet\ArtifactsMMO\Model\AddAccountSchema $add_account_schema,
         string $contentType = self::contentTypes['createAccountAccountsCreatePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->createAccountAccountsCreatePostAsyncWithHttpInfo($add_account_schema, $contentType)
             ->then(
                 function ($response) {
@@ -326,8 +324,7 @@ class AccountsApi
     public function createAccountAccountsCreatePostAsyncWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\AddAccountSchema $add_account_schema,
         string $contentType = self::contentTypes['createAccountAccountsCreatePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\ResponseSchema';
         $request = $this->createAccountAccountsCreatePostRequest($add_account_schema, $contentType);
 
@@ -335,7 +332,7 @@ class AccountsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -379,8 +376,7 @@ class AccountsApi
     public function createAccountAccountsCreatePostRequest(
         \Kehet\ArtifactsMMO\Model\AddAccountSchema $add_account_schema,
         string $contentType = self::contentTypes['createAccountAccountsCreatePost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'add_account_schema' is set
         if ($add_account_schema === null || (is_array($add_account_schema) && count($add_account_schema) === 0)) {
@@ -476,8 +472,7 @@ class AccountsApi
     public function forgotPasswordAccountsForgotPasswordPost(
         \Kehet\ArtifactsMMO\Model\PasswordResetRequestSchema $password_reset_request_schema,
         string $contentType = self::contentTypes['forgotPasswordAccountsForgotPasswordPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\PasswordResetResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\PasswordResetResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->forgotPasswordAccountsForgotPasswordPostWithHttpInfo($password_reset_request_schema, $contentType);
         return $response;
     }
@@ -497,8 +492,7 @@ class AccountsApi
     public function forgotPasswordAccountsForgotPasswordPostWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\PasswordResetRequestSchema $password_reset_request_schema,
         string $contentType = self::contentTypes['forgotPasswordAccountsForgotPasswordPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->forgotPasswordAccountsForgotPasswordPostRequest($password_reset_request_schema, $contentType);
 
         try {
@@ -523,7 +517,7 @@ class AccountsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\PasswordResetResponseSchema',
@@ -537,7 +531,7 @@ class AccountsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -576,7 +570,7 @@ class AccountsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -595,8 +589,7 @@ class AccountsApi
     public function forgotPasswordAccountsForgotPasswordPostAsync(
         \Kehet\ArtifactsMMO\Model\PasswordResetRequestSchema $password_reset_request_schema,
         string $contentType = self::contentTypes['forgotPasswordAccountsForgotPasswordPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->forgotPasswordAccountsForgotPasswordPostAsyncWithHttpInfo($password_reset_request_schema, $contentType)
             ->then(
                 function ($response) {
@@ -619,8 +612,7 @@ class AccountsApi
     public function forgotPasswordAccountsForgotPasswordPostAsyncWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\PasswordResetRequestSchema $password_reset_request_schema,
         string $contentType = self::contentTypes['forgotPasswordAccountsForgotPasswordPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\PasswordResetResponseSchema';
         $request = $this->forgotPasswordAccountsForgotPasswordPostRequest($password_reset_request_schema, $contentType);
 
@@ -628,7 +620,7 @@ class AccountsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -672,8 +664,7 @@ class AccountsApi
     public function forgotPasswordAccountsForgotPasswordPostRequest(
         \Kehet\ArtifactsMMO\Model\PasswordResetRequestSchema $password_reset_request_schema,
         string $contentType = self::contentTypes['forgotPasswordAccountsForgotPasswordPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'password_reset_request_schema' is set
         if ($password_reset_request_schema === null || (is_array($password_reset_request_schema) && count($password_reset_request_schema) === 0)) {
@@ -769,8 +760,7 @@ class AccountsApi
     public function getAccountAccountsAccountGet(
         string $account,
         string $contentType = self::contentTypes['getAccountAccountsAccountGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\AccountDetailsSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\AccountDetailsSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getAccountAccountsAccountGetWithHttpInfo($account, $contentType);
         return $response;
     }
@@ -790,8 +780,7 @@ class AccountsApi
     public function getAccountAccountsAccountGetWithHttpInfo(
         string $account,
         string $contentType = self::contentTypes['getAccountAccountsAccountGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAccountAccountsAccountGetRequest($account, $contentType);
 
         try {
@@ -816,7 +805,7 @@ class AccountsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\AccountDetailsSchema',
@@ -830,7 +819,7 @@ class AccountsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -869,7 +858,7 @@ class AccountsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -888,8 +877,7 @@ class AccountsApi
     public function getAccountAccountsAccountGetAsync(
         string $account,
         string $contentType = self::contentTypes['getAccountAccountsAccountGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAccountAccountsAccountGetAsyncWithHttpInfo($account, $contentType)
             ->then(
                 function ($response) {
@@ -912,8 +900,7 @@ class AccountsApi
     public function getAccountAccountsAccountGetAsyncWithHttpInfo(
         string $account,
         string $contentType = self::contentTypes['getAccountAccountsAccountGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\AccountDetailsSchema';
         $request = $this->getAccountAccountsAccountGetRequest($account, $contentType);
 
@@ -921,7 +908,7 @@ class AccountsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -965,8 +952,7 @@ class AccountsApi
     public function getAccountAccountsAccountGetRequest(
         string $account,
         string $contentType = self::contentTypes['getAccountAccountsAccountGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'account' is set
         if ($account === null || (is_array($account) && count($account) === 0)) {
@@ -977,7 +963,7 @@ class AccountsApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $account)) {
             throw new InvalidArgumentException("invalid value for \"account\" when calling AccountsApi.getAccountAccountsAccountGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/accounts/{account}';
         $formParams = [];
@@ -1074,8 +1060,7 @@ class AccountsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAccountAchievementsAccountsAccountAchievementsGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageAccountAchievementSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageAccountAchievementSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getAccountAchievementsAccountsAccountAchievementsGetWithHttpInfo($account, $type, $completed, $page, $size, $contentType);
         return $response;
     }
@@ -1103,8 +1088,7 @@ class AccountsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAccountAchievementsAccountsAccountAchievementsGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAccountAchievementsAccountsAccountAchievementsGetRequest($account, $type, $completed, $page, $size, $contentType);
 
         try {
@@ -1129,7 +1113,7 @@ class AccountsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageAccountAchievementSchema',
@@ -1143,7 +1127,7 @@ class AccountsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1182,7 +1166,7 @@ class AccountsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1209,8 +1193,7 @@ class AccountsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAccountAchievementsAccountsAccountAchievementsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAccountAchievementsAccountsAccountAchievementsGetAsyncWithHttpInfo($account, $type, $completed, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -1241,8 +1224,7 @@ class AccountsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAccountAchievementsAccountsAccountAchievementsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageAccountAchievementSchema';
         $request = $this->getAccountAchievementsAccountsAccountAchievementsGetRequest($account, $type, $completed, $page, $size, $contentType);
 
@@ -1250,7 +1232,7 @@ class AccountsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1302,8 +1284,7 @@ class AccountsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAccountAchievementsAccountsAccountAchievementsGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'account' is set
         if ($account === null || (is_array($account) && count($account) === 0)) {
@@ -1314,20 +1295,20 @@ class AccountsApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $account)) {
             throw new InvalidArgumentException("invalid value for \"account\" when calling AccountsApi.getAccountAchievementsAccountsAccountAchievementsGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
 
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling AccountsApi.getAccountAchievementsAccountsAccountAchievementsGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling AccountsApi.getAccountAchievementsAccountsAccountAchievementsGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling AccountsApi.getAccountAchievementsAccountsAccountAchievementsGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/accounts/{account}/achievements';
         $formParams = [];
@@ -1452,8 +1433,7 @@ class AccountsApi
     public function getAccountCharactersAccountsAccountCharactersGet(
         string $account,
         string $contentType = self::contentTypes['getAccountCharactersAccountsAccountCharactersGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\CharactersListSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\CharactersListSchema {
         list($response) = $this->getAccountCharactersAccountsAccountCharactersGetWithHttpInfo($account, $contentType);
         return $response;
     }
@@ -1473,8 +1453,7 @@ class AccountsApi
     public function getAccountCharactersAccountsAccountCharactersGetWithHttpInfo(
         string $account,
         string $contentType = self::contentTypes['getAccountCharactersAccountsAccountCharactersGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAccountCharactersAccountsAccountCharactersGetRequest($account, $contentType);
 
         try {
@@ -1499,7 +1478,7 @@ class AccountsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\CharactersListSchema',
@@ -1507,7 +1486,7 @@ class AccountsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1538,7 +1517,7 @@ class AccountsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1557,8 +1536,7 @@ class AccountsApi
     public function getAccountCharactersAccountsAccountCharactersGetAsync(
         string $account,
         string $contentType = self::contentTypes['getAccountCharactersAccountsAccountCharactersGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAccountCharactersAccountsAccountCharactersGetAsyncWithHttpInfo($account, $contentType)
             ->then(
                 function ($response) {
@@ -1581,8 +1559,7 @@ class AccountsApi
     public function getAccountCharactersAccountsAccountCharactersGetAsyncWithHttpInfo(
         string $account,
         string $contentType = self::contentTypes['getAccountCharactersAccountsAccountCharactersGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\CharactersListSchema';
         $request = $this->getAccountCharactersAccountsAccountCharactersGetRequest($account, $contentType);
 
@@ -1590,7 +1567,7 @@ class AccountsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1634,8 +1611,7 @@ class AccountsApi
     public function getAccountCharactersAccountsAccountCharactersGetRequest(
         string $account,
         string $contentType = self::contentTypes['getAccountCharactersAccountsAccountCharactersGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'account' is set
         if ($account === null || (is_array($account) && count($account) === 0)) {
@@ -1646,7 +1622,7 @@ class AccountsApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $account)) {
             throw new InvalidArgumentException("invalid value for \"account\" when calling AccountsApi.getAccountCharactersAccountsAccountCharactersGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/accounts/{account}/characters';
         $formParams = [];
@@ -1735,8 +1711,7 @@ class AccountsApi
     public function resetPasswordAccountsResetPasswordPost(
         \Kehet\ArtifactsMMO\Model\PasswordResetConfirmSchema $password_reset_confirm_schema,
         string $contentType = self::contentTypes['resetPasswordAccountsResetPasswordPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\PasswordResetResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\PasswordResetResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->resetPasswordAccountsResetPasswordPostWithHttpInfo($password_reset_confirm_schema, $contentType);
         return $response;
     }
@@ -1756,8 +1731,7 @@ class AccountsApi
     public function resetPasswordAccountsResetPasswordPostWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\PasswordResetConfirmSchema $password_reset_confirm_schema,
         string $contentType = self::contentTypes['resetPasswordAccountsResetPasswordPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->resetPasswordAccountsResetPasswordPostRequest($password_reset_confirm_schema, $contentType);
 
         try {
@@ -1782,7 +1756,7 @@ class AccountsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\PasswordResetResponseSchema',
@@ -1814,7 +1788,7 @@ class AccountsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1877,7 +1851,7 @@ class AccountsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1896,8 +1870,7 @@ class AccountsApi
     public function resetPasswordAccountsResetPasswordPostAsync(
         \Kehet\ArtifactsMMO\Model\PasswordResetConfirmSchema $password_reset_confirm_schema,
         string $contentType = self::contentTypes['resetPasswordAccountsResetPasswordPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->resetPasswordAccountsResetPasswordPostAsyncWithHttpInfo($password_reset_confirm_schema, $contentType)
             ->then(
                 function ($response) {
@@ -1920,8 +1893,7 @@ class AccountsApi
     public function resetPasswordAccountsResetPasswordPostAsyncWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\PasswordResetConfirmSchema $password_reset_confirm_schema,
         string $contentType = self::contentTypes['resetPasswordAccountsResetPasswordPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\PasswordResetResponseSchema';
         $request = $this->resetPasswordAccountsResetPasswordPostRequest($password_reset_confirm_schema, $contentType);
 
@@ -1929,7 +1901,7 @@ class AccountsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1973,8 +1945,7 @@ class AccountsApi
     public function resetPasswordAccountsResetPasswordPostRequest(
         \Kehet\ArtifactsMMO\Model\PasswordResetConfirmSchema $password_reset_confirm_schema,
         string $contentType = self::contentTypes['resetPasswordAccountsResetPasswordPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'password_reset_confirm_schema' is set
         if ($password_reset_confirm_schema === null || (is_array($password_reset_confirm_schema) && count($password_reset_confirm_schema) === 0)) {
@@ -2079,7 +2050,7 @@ class AccountsApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

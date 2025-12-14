@@ -1,4 +1,5 @@
 <?php
+
 /**
  * NpcMerchantTransactionResponseSchema
  *
@@ -380,7 +381,7 @@ class NpcMerchantTransactionResponseSchema implements ModelInterface, ArrayAcces
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

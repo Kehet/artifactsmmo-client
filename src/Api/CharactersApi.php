@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CharactersApi
  * PHP version 8.1
@@ -149,8 +150,7 @@ class CharactersApi
     public function createCharacterCharactersCreatePost(
         \Kehet\ArtifactsMMO\Model\AddCharacterSchema $add_character_schema,
         string $contentType = self::contentTypes['createCharacterCharactersCreatePost'][0]
-    ): \Kehet\ArtifactsMMO\Model\CharacterResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\CharacterResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->createCharacterCharactersCreatePostWithHttpInfo($add_character_schema, $contentType);
         return $response;
     }
@@ -170,8 +170,7 @@ class CharactersApi
     public function createCharacterCharactersCreatePostWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\AddCharacterSchema $add_character_schema,
         string $contentType = self::contentTypes['createCharacterCharactersCreatePost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->createCharacterCharactersCreatePostRequest($add_character_schema, $contentType);
 
         try {
@@ -196,7 +195,7 @@ class CharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\CharacterResponseSchema',
@@ -228,7 +227,7 @@ class CharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -291,7 +290,7 @@ class CharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -310,8 +309,7 @@ class CharactersApi
     public function createCharacterCharactersCreatePostAsync(
         \Kehet\ArtifactsMMO\Model\AddCharacterSchema $add_character_schema,
         string $contentType = self::contentTypes['createCharacterCharactersCreatePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->createCharacterCharactersCreatePostAsyncWithHttpInfo($add_character_schema, $contentType)
             ->then(
                 function ($response) {
@@ -334,8 +332,7 @@ class CharactersApi
     public function createCharacterCharactersCreatePostAsyncWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\AddCharacterSchema $add_character_schema,
         string $contentType = self::contentTypes['createCharacterCharactersCreatePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\CharacterResponseSchema';
         $request = $this->createCharacterCharactersCreatePostRequest($add_character_schema, $contentType);
 
@@ -343,7 +340,7 @@ class CharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -387,8 +384,7 @@ class CharactersApi
     public function createCharacterCharactersCreatePostRequest(
         \Kehet\ArtifactsMMO\Model\AddCharacterSchema $add_character_schema,
         string $contentType = self::contentTypes['createCharacterCharactersCreatePost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'add_character_schema' is set
         if ($add_character_schema === null || (is_array($add_character_schema) && count($add_character_schema) === 0)) {
@@ -488,8 +484,7 @@ class CharactersApi
     public function deleteCharacterCharactersDeletePost(
         \Kehet\ArtifactsMMO\Model\DeleteCharacterSchema $delete_character_schema,
         string $contentType = self::contentTypes['deleteCharacterCharactersDeletePost'][0]
-    ): \Kehet\ArtifactsMMO\Model\CharacterResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\CharacterResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->deleteCharacterCharactersDeletePostWithHttpInfo($delete_character_schema, $contentType);
         return $response;
     }
@@ -509,8 +504,7 @@ class CharactersApi
     public function deleteCharacterCharactersDeletePostWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\DeleteCharacterSchema $delete_character_schema,
         string $contentType = self::contentTypes['deleteCharacterCharactersDeletePost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->deleteCharacterCharactersDeletePostRequest($delete_character_schema, $contentType);
 
         try {
@@ -535,7 +529,7 @@ class CharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\CharacterResponseSchema',
@@ -555,7 +549,7 @@ class CharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -602,7 +596,7 @@ class CharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -621,8 +615,7 @@ class CharactersApi
     public function deleteCharacterCharactersDeletePostAsync(
         \Kehet\ArtifactsMMO\Model\DeleteCharacterSchema $delete_character_schema,
         string $contentType = self::contentTypes['deleteCharacterCharactersDeletePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->deleteCharacterCharactersDeletePostAsyncWithHttpInfo($delete_character_schema, $contentType)
             ->then(
                 function ($response) {
@@ -645,8 +638,7 @@ class CharactersApi
     public function deleteCharacterCharactersDeletePostAsyncWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\DeleteCharacterSchema $delete_character_schema,
         string $contentType = self::contentTypes['deleteCharacterCharactersDeletePost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\CharacterResponseSchema';
         $request = $this->deleteCharacterCharactersDeletePostRequest($delete_character_schema, $contentType);
 
@@ -654,7 +646,7 @@ class CharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -698,8 +690,7 @@ class CharactersApi
     public function deleteCharacterCharactersDeletePostRequest(
         \Kehet\ArtifactsMMO\Model\DeleteCharacterSchema $delete_character_schema,
         string $contentType = self::contentTypes['deleteCharacterCharactersDeletePost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'delete_character_schema' is set
         if ($delete_character_schema === null || (is_array($delete_character_schema) && count($delete_character_schema) === 0)) {
@@ -801,8 +792,7 @@ class CharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getActiveCharactersCharactersActiveGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageActiveCharacterSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageActiveCharacterSchema {
         list($response) = $this->getActiveCharactersCharactersActiveGetWithHttpInfo($page, $size, $contentType);
         return $response;
     }
@@ -824,8 +814,7 @@ class CharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getActiveCharactersCharactersActiveGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getActiveCharactersCharactersActiveGetRequest($page, $size, $contentType);
 
         try {
@@ -850,7 +839,7 @@ class CharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageActiveCharacterSchema',
@@ -858,7 +847,7 @@ class CharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -889,7 +878,7 @@ class CharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -910,8 +899,7 @@ class CharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getActiveCharactersCharactersActiveGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getActiveCharactersCharactersActiveGetAsyncWithHttpInfo($page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -936,8 +924,7 @@ class CharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getActiveCharactersCharactersActiveGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageActiveCharacterSchema';
         $request = $this->getActiveCharactersCharactersActiveGetRequest($page, $size, $contentType);
 
@@ -945,7 +932,7 @@ class CharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -991,20 +978,19 @@ class CharactersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getActiveCharactersCharactersActiveGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling CharactersApi.getActiveCharactersCharactersActiveGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling CharactersApi.getActiveCharactersCharactersActiveGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling CharactersApi.getActiveCharactersCharactersActiveGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/characters/active';
         $formParams = [];
@@ -1103,8 +1089,7 @@ class CharactersApi
     public function getCharacterCharactersNameGet(
         string $name,
         string $contentType = self::contentTypes['getCharacterCharactersNameGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\CharacterResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\CharacterResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getCharacterCharactersNameGetWithHttpInfo($name, $contentType);
         return $response;
     }
@@ -1124,8 +1109,7 @@ class CharactersApi
     public function getCharacterCharactersNameGetWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['getCharacterCharactersNameGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getCharacterCharactersNameGetRequest($name, $contentType);
 
         try {
@@ -1150,7 +1134,7 @@ class CharactersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\CharacterResponseSchema',
@@ -1164,7 +1148,7 @@ class CharactersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1203,7 +1187,7 @@ class CharactersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1222,8 +1206,7 @@ class CharactersApi
     public function getCharacterCharactersNameGetAsync(
         string $name,
         string $contentType = self::contentTypes['getCharacterCharactersNameGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getCharacterCharactersNameGetAsyncWithHttpInfo($name, $contentType)
             ->then(
                 function ($response) {
@@ -1246,8 +1229,7 @@ class CharactersApi
     public function getCharacterCharactersNameGetAsyncWithHttpInfo(
         string $name,
         string $contentType = self::contentTypes['getCharacterCharactersNameGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\CharacterResponseSchema';
         $request = $this->getCharacterCharactersNameGetRequest($name, $contentType);
 
@@ -1255,7 +1237,7 @@ class CharactersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1299,8 +1281,7 @@ class CharactersApi
     public function getCharacterCharactersNameGetRequest(
         string $name,
         string $contentType = self::contentTypes['getCharacterCharactersNameGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'name' is set
         if ($name === null || (is_array($name) && count($name) === 0)) {
@@ -1311,7 +1292,7 @@ class CharactersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling CharactersApi.getCharacterCharactersNameGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/characters/{name}';
         $formParams = [];
@@ -1409,7 +1390,7 @@ class CharactersApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * CharacterMovementResponseSchema
  *
@@ -380,7 +381,7 @@ class CharacterMovementResponseSchema implements ModelInterface, ArrayAccess, Js
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

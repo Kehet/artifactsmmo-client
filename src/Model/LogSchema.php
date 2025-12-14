@@ -1,4 +1,5 @@
 <?php
+
 /**
  * LogSchema
  *
@@ -488,8 +489,8 @@ class LogSchema implements ModelInterface, ArrayAccess, JsonSerializable
             array_push($this->openAPINullablesSetToNull, 'content');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('content', $nullablesSetToNull);
-            if ($index !== FALSE) {
+            $index = array_search('content', $nullablesSetToNull, true);
+            if ($index !== false) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
@@ -643,7 +644,7 @@ class LogSchema implements ModelInterface, ArrayAccess, JsonSerializable
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

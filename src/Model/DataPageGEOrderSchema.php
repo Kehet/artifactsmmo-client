@@ -1,4 +1,5 @@
 <?php
+
 /**
  * DataPageGEOrderSchema
  *
@@ -552,7 +553,7 @@ class DataPageGEOrderSchema implements ModelInterface, ArrayAccess, JsonSerializ
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

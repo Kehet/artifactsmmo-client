@@ -1,4 +1,5 @@
 <?php
+
 /**
  * TasksApi
  * PHP version 8.1
@@ -151,8 +152,7 @@ class TasksApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllTasksRewardsTasksRewardsGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageDropRateSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageDropRateSchema {
         list($response) = $this->getAllTasksRewardsTasksRewardsGetWithHttpInfo($page, $size, $contentType);
         return $response;
     }
@@ -174,8 +174,7 @@ class TasksApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllTasksRewardsTasksRewardsGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAllTasksRewardsTasksRewardsGetRequest($page, $size, $contentType);
 
         try {
@@ -200,7 +199,7 @@ class TasksApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageDropRateSchema',
@@ -208,7 +207,7 @@ class TasksApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -239,7 +238,7 @@ class TasksApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -260,8 +259,7 @@ class TasksApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllTasksRewardsTasksRewardsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAllTasksRewardsTasksRewardsGetAsyncWithHttpInfo($page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -286,8 +284,7 @@ class TasksApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllTasksRewardsTasksRewardsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageDropRateSchema';
         $request = $this->getAllTasksRewardsTasksRewardsGetRequest($page, $size, $contentType);
 
@@ -295,7 +292,7 @@ class TasksApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -341,20 +338,19 @@ class TasksApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllTasksRewardsTasksRewardsGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling TasksApi.getAllTasksRewardsTasksRewardsGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling TasksApi.getAllTasksRewardsTasksRewardsGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling TasksApi.getAllTasksRewardsTasksRewardsGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/tasks/rewards';
         $formParams = [];
@@ -463,8 +459,7 @@ class TasksApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllTasksTasksListGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageTaskFullSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageTaskFullSchema {
         list($response) = $this->getAllTasksTasksListGetWithHttpInfo($min_level, $max_level, $skill, $type, $page, $size, $contentType);
         return $response;
     }
@@ -494,8 +489,7 @@ class TasksApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllTasksTasksListGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAllTasksTasksListGetRequest($min_level, $max_level, $skill, $type, $page, $size, $contentType);
 
         try {
@@ -520,7 +514,7 @@ class TasksApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageTaskFullSchema',
@@ -528,7 +522,7 @@ class TasksApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -559,7 +553,7 @@ class TasksApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -588,8 +582,7 @@ class TasksApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllTasksTasksListGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAllTasksTasksListGetAsyncWithHttpInfo($min_level, $max_level, $skill, $type, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -622,8 +615,7 @@ class TasksApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllTasksTasksListGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageTaskFullSchema';
         $request = $this->getAllTasksTasksListGetRequest($min_level, $max_level, $skill, $type, $page, $size, $contentType);
 
@@ -631,7 +623,7 @@ class TasksApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -685,30 +677,29 @@ class TasksApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllTasksTasksListGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($min_level !== null && $min_level < 0) {
             throw new InvalidArgumentException('invalid value for "$min_level" when calling TasksApi.getAllTasksTasksListGet, must be bigger than or equal to 0.');
         }
-        
+
         if ($max_level !== null && $max_level < 0) {
             throw new InvalidArgumentException('invalid value for "$max_level" when calling TasksApi.getAllTasksTasksListGet, must be bigger than or equal to 0.');
         }
-        
+
 
 
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling TasksApi.getAllTasksTasksListGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling TasksApi.getAllTasksTasksListGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling TasksApi.getAllTasksTasksListGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/tasks/list';
         $formParams = [];
@@ -843,8 +834,7 @@ class TasksApi
     public function getTaskTasksListCodeGet(
         string $code,
         string $contentType = self::contentTypes['getTaskTasksListCodeGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\TaskFullResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\TaskFullResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getTaskTasksListCodeGetWithHttpInfo($code, $contentType);
         return $response;
     }
@@ -864,8 +854,7 @@ class TasksApi
     public function getTaskTasksListCodeGetWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getTaskTasksListCodeGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getTaskTasksListCodeGetRequest($code, $contentType);
 
         try {
@@ -890,7 +879,7 @@ class TasksApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\TaskFullResponseSchema',
@@ -904,7 +893,7 @@ class TasksApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -943,7 +932,7 @@ class TasksApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -962,8 +951,7 @@ class TasksApi
     public function getTaskTasksListCodeGetAsync(
         string $code,
         string $contentType = self::contentTypes['getTaskTasksListCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getTaskTasksListCodeGetAsyncWithHttpInfo($code, $contentType)
             ->then(
                 function ($response) {
@@ -986,8 +974,7 @@ class TasksApi
     public function getTaskTasksListCodeGetAsyncWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getTaskTasksListCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\TaskFullResponseSchema';
         $request = $this->getTaskTasksListCodeGetRequest($code, $contentType);
 
@@ -995,7 +982,7 @@ class TasksApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1039,8 +1026,7 @@ class TasksApi
     public function getTaskTasksListCodeGetRequest(
         string $code,
         string $contentType = self::contentTypes['getTaskTasksListCodeGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'code' is set
         if ($code === null || (is_array($code) && count($code) === 0)) {
@@ -1051,7 +1037,7 @@ class TasksApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $code)) {
             throw new InvalidArgumentException("invalid value for \"code\" when calling TasksApi.getTaskTasksListCodeGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/tasks/list/{code}';
         $formParams = [];
@@ -1140,8 +1126,7 @@ class TasksApi
     public function getTasksRewardTasksRewardsCodeGet(
         string $code,
         string $contentType = self::contentTypes['getTasksRewardTasksRewardsCodeGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\RewardResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\RewardResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getTasksRewardTasksRewardsCodeGetWithHttpInfo($code, $contentType);
         return $response;
     }
@@ -1161,8 +1146,7 @@ class TasksApi
     public function getTasksRewardTasksRewardsCodeGetWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getTasksRewardTasksRewardsCodeGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getTasksRewardTasksRewardsCodeGetRequest($code, $contentType);
 
         try {
@@ -1187,7 +1171,7 @@ class TasksApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\RewardResponseSchema',
@@ -1201,7 +1185,7 @@ class TasksApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1240,7 +1224,7 @@ class TasksApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1259,8 +1243,7 @@ class TasksApi
     public function getTasksRewardTasksRewardsCodeGetAsync(
         string $code,
         string $contentType = self::contentTypes['getTasksRewardTasksRewardsCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getTasksRewardTasksRewardsCodeGetAsyncWithHttpInfo($code, $contentType)
             ->then(
                 function ($response) {
@@ -1283,8 +1266,7 @@ class TasksApi
     public function getTasksRewardTasksRewardsCodeGetAsyncWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getTasksRewardTasksRewardsCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\RewardResponseSchema';
         $request = $this->getTasksRewardTasksRewardsCodeGetRequest($code, $contentType);
 
@@ -1292,7 +1274,7 @@ class TasksApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1336,8 +1318,7 @@ class TasksApi
     public function getTasksRewardTasksRewardsCodeGetRequest(
         string $code,
         string $contentType = self::contentTypes['getTasksRewardTasksRewardsCodeGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'code' is set
         if ($code === null || (is_array($code) && count($code) === 0)) {
@@ -1348,7 +1329,7 @@ class TasksApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $code)) {
             throw new InvalidArgumentException("invalid value for \"code\" when calling TasksApi.getTasksRewardTasksRewardsCodeGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/tasks/rewards/{code}';
         $formParams = [];
@@ -1446,7 +1427,7 @@ class TasksApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

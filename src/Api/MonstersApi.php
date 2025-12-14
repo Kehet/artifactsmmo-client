@@ -1,4 +1,5 @@
 <?php
+
 /**
  * MonstersApi
  * PHP version 8.1
@@ -153,8 +154,7 @@ class MonstersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllMonstersMonstersGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageMonsterSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageMonsterSchema {
         list($response) = $this->getAllMonstersMonstersGetWithHttpInfo($name, $min_level, $max_level, $drop, $page, $size, $contentType);
         return $response;
     }
@@ -184,8 +184,7 @@ class MonstersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllMonstersMonstersGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAllMonstersMonstersGetRequest($name, $min_level, $max_level, $drop, $page, $size, $contentType);
 
         try {
@@ -210,7 +209,7 @@ class MonstersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageMonsterSchema',
@@ -218,7 +217,7 @@ class MonstersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -249,7 +248,7 @@ class MonstersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -278,8 +277,7 @@ class MonstersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllMonstersMonstersGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAllMonstersMonstersGetAsyncWithHttpInfo($name, $min_level, $max_level, $drop, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -312,8 +310,7 @@ class MonstersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllMonstersMonstersGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageMonsterSchema';
         $request = $this->getAllMonstersMonstersGetRequest($name, $min_level, $max_level, $drop, $page, $size, $contentType);
 
@@ -321,7 +318,7 @@ class MonstersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -375,36 +372,35 @@ class MonstersApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllMonstersMonstersGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($name !== null && !preg_match("/^[a-zA-Z0-9_-]+(\\s[a-zA-Z0-9_-]+)*\\s?$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling MonstersApi.getAllMonstersMonstersGet, must conform to the pattern /^[a-zA-Z0-9_-]+(\\s[a-zA-Z0-9_-]+)*\\s?$/.");
         }
-        
+
         if ($min_level !== null && $min_level < 0) {
             throw new InvalidArgumentException('invalid value for "$min_level" when calling MonstersApi.getAllMonstersMonstersGet, must be bigger than or equal to 0.');
         }
-        
+
         if ($max_level !== null && $max_level < 0) {
             throw new InvalidArgumentException('invalid value for "$max_level" when calling MonstersApi.getAllMonstersMonstersGet, must be bigger than or equal to 0.');
         }
-        
+
         if ($drop !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $drop)) {
             throw new InvalidArgumentException("invalid value for \"drop\" when calling MonstersApi.getAllMonstersMonstersGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling MonstersApi.getAllMonstersMonstersGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MonstersApi.getAllMonstersMonstersGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling MonstersApi.getAllMonstersMonstersGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/monsters';
         $formParams = [];
@@ -539,8 +535,7 @@ class MonstersApi
     public function getMonsterMonstersCodeGet(
         string $code,
         string $contentType = self::contentTypes['getMonsterMonstersCodeGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\MonsterResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\MonsterResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getMonsterMonstersCodeGetWithHttpInfo($code, $contentType);
         return $response;
     }
@@ -560,8 +555,7 @@ class MonstersApi
     public function getMonsterMonstersCodeGetWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getMonsterMonstersCodeGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getMonsterMonstersCodeGetRequest($code, $contentType);
 
         try {
@@ -586,7 +580,7 @@ class MonstersApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\MonsterResponseSchema',
@@ -600,7 +594,7 @@ class MonstersApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -639,7 +633,7 @@ class MonstersApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -658,8 +652,7 @@ class MonstersApi
     public function getMonsterMonstersCodeGetAsync(
         string $code,
         string $contentType = self::contentTypes['getMonsterMonstersCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getMonsterMonstersCodeGetAsyncWithHttpInfo($code, $contentType)
             ->then(
                 function ($response) {
@@ -682,8 +675,7 @@ class MonstersApi
     public function getMonsterMonstersCodeGetAsyncWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getMonsterMonstersCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\MonsterResponseSchema';
         $request = $this->getMonsterMonstersCodeGetRequest($code, $contentType);
 
@@ -691,7 +683,7 @@ class MonstersApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -735,8 +727,7 @@ class MonstersApi
     public function getMonsterMonstersCodeGetRequest(
         string $code,
         string $contentType = self::contentTypes['getMonsterMonstersCodeGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'code' is set
         if ($code === null || (is_array($code) && count($code) === 0)) {
@@ -747,7 +738,7 @@ class MonstersApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $code)) {
             throw new InvalidArgumentException("invalid value for \"code\" when calling MonstersApi.getMonsterMonstersCodeGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/monsters/{code}';
         $formParams = [];
@@ -845,7 +836,7 @@ class MonstersApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * GETransactionListSchema
  *
@@ -454,7 +455,7 @@ class GETransactionListSchema implements ModelInterface, ArrayAccess, JsonSerial
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

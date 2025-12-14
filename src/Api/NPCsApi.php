@@ -1,4 +1,5 @@
 <?php
+
 /**
  * NPCsApi
  * PHP version 8.1
@@ -157,8 +158,7 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllNpcsItemsNpcsItemsGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageNPCItem
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageNPCItem {
         list($response) = $this->getAllNpcsItemsNpcsItemsGetWithHttpInfo($code, $npc, $currency, $page, $size, $contentType);
         return $response;
     }
@@ -186,8 +186,7 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllNpcsItemsNpcsItemsGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAllNpcsItemsNpcsItemsGetRequest($code, $npc, $currency, $page, $size, $contentType);
 
         try {
@@ -212,7 +211,7 @@ class NPCsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageNPCItem',
@@ -220,7 +219,7 @@ class NPCsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -251,7 +250,7 @@ class NPCsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -278,8 +277,7 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllNpcsItemsNpcsItemsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAllNpcsItemsNpcsItemsGetAsyncWithHttpInfo($code, $npc, $currency, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -310,8 +308,7 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllNpcsItemsNpcsItemsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageNPCItem';
         $request = $this->getAllNpcsItemsNpcsItemsGetRequest($code, $npc, $currency, $page, $size, $contentType);
 
@@ -319,7 +316,7 @@ class NPCsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -371,32 +368,31 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllNpcsItemsNpcsItemsGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($code !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $code)) {
             throw new InvalidArgumentException("invalid value for \"code\" when calling NPCsApi.getAllNpcsItemsNpcsItemsGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($npc !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $npc)) {
             throw new InvalidArgumentException("invalid value for \"npc\" when calling NPCsApi.getAllNpcsItemsNpcsItemsGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($currency !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $currency)) {
             throw new InvalidArgumentException("invalid value for \"currency\" when calling NPCsApi.getAllNpcsItemsNpcsItemsGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling NPCsApi.getAllNpcsItemsNpcsItemsGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling NPCsApi.getAllNpcsItemsNpcsItemsGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling NPCsApi.getAllNpcsItemsNpcsItemsGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/npcs/items';
         $formParams = [];
@@ -528,8 +524,7 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllNpcsNpcsDetailsGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageNPCSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageNPCSchema {
         list($response) = $this->getAllNpcsNpcsDetailsGetWithHttpInfo($name, $type, $page, $size, $contentType);
         return $response;
     }
@@ -555,8 +550,7 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllNpcsNpcsDetailsGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAllNpcsNpcsDetailsGetRequest($name, $type, $page, $size, $contentType);
 
         try {
@@ -581,7 +575,7 @@ class NPCsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageNPCSchema',
@@ -589,7 +583,7 @@ class NPCsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -620,7 +614,7 @@ class NPCsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -645,8 +639,7 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllNpcsNpcsDetailsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAllNpcsNpcsDetailsGetAsyncWithHttpInfo($name, $type, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -675,8 +668,7 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllNpcsNpcsDetailsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageNPCSchema';
         $request = $this->getAllNpcsNpcsDetailsGetRequest($name, $type, $page, $size, $contentType);
 
@@ -684,7 +676,7 @@ class NPCsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -734,25 +726,24 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllNpcsNpcsDetailsGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($name !== null && !preg_match("/^[a-zA-Z0-9_-]+(\\s[a-zA-Z0-9_-]+)*\\s?$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling NPCsApi.getAllNpcsNpcsDetailsGet, must conform to the pattern /^[a-zA-Z0-9_-]+(\\s[a-zA-Z0-9_-]+)*\\s?$/.");
         }
-        
+
 
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling NPCsApi.getAllNpcsNpcsDetailsGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling NPCsApi.getAllNpcsNpcsDetailsGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling NPCsApi.getAllNpcsNpcsDetailsGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/npcs/details';
         $formParams = [];
@@ -873,8 +864,7 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getNpcItemsNpcsItemsCodeGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageNPCItem|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageNPCItem|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getNpcItemsNpcsItemsCodeGetWithHttpInfo($code, $page, $size, $contentType);
         return $response;
     }
@@ -898,8 +888,7 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getNpcItemsNpcsItemsCodeGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getNpcItemsNpcsItemsCodeGetRequest($code, $page, $size, $contentType);
 
         try {
@@ -924,7 +913,7 @@ class NPCsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageNPCItem',
@@ -938,7 +927,7 @@ class NPCsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -977,7 +966,7 @@ class NPCsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1000,8 +989,7 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getNpcItemsNpcsItemsCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getNpcItemsNpcsItemsCodeGetAsyncWithHttpInfo($code, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -1028,8 +1016,7 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getNpcItemsNpcsItemsCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageNPCItem';
         $request = $this->getNpcItemsNpcsItemsCodeGetRequest($code, $page, $size, $contentType);
 
@@ -1037,7 +1024,7 @@ class NPCsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1085,8 +1072,7 @@ class NPCsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getNpcItemsNpcsItemsCodeGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'code' is set
         if ($code === null || (is_array($code) && count($code) === 0)) {
@@ -1097,18 +1083,18 @@ class NPCsApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $code)) {
             throw new InvalidArgumentException("invalid value for \"code\" when calling NPCsApi.getNpcItemsNpcsItemsCodeGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling NPCsApi.getNpcItemsNpcsItemsCodeGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling NPCsApi.getNpcItemsNpcsItemsCodeGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling NPCsApi.getNpcItemsNpcsItemsCodeGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/npcs/items/{code}';
         $formParams = [];
@@ -1215,8 +1201,7 @@ class NPCsApi
     public function getNpcNpcsDetailsCodeGet(
         string $code,
         string $contentType = self::contentTypes['getNpcNpcsDetailsCodeGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\NPCResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\NPCResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getNpcNpcsDetailsCodeGetWithHttpInfo($code, $contentType);
         return $response;
     }
@@ -1236,8 +1221,7 @@ class NPCsApi
     public function getNpcNpcsDetailsCodeGetWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getNpcNpcsDetailsCodeGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getNpcNpcsDetailsCodeGetRequest($code, $contentType);
 
         try {
@@ -1262,7 +1246,7 @@ class NPCsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\NPCResponseSchema',
@@ -1276,7 +1260,7 @@ class NPCsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -1315,7 +1299,7 @@ class NPCsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -1334,8 +1318,7 @@ class NPCsApi
     public function getNpcNpcsDetailsCodeGetAsync(
         string $code,
         string $contentType = self::contentTypes['getNpcNpcsDetailsCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getNpcNpcsDetailsCodeGetAsyncWithHttpInfo($code, $contentType)
             ->then(
                 function ($response) {
@@ -1358,8 +1341,7 @@ class NPCsApi
     public function getNpcNpcsDetailsCodeGetAsyncWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getNpcNpcsDetailsCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\NPCResponseSchema';
         $request = $this->getNpcNpcsDetailsCodeGetRequest($code, $contentType);
 
@@ -1367,7 +1349,7 @@ class NPCsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1411,8 +1393,7 @@ class NPCsApi
     public function getNpcNpcsDetailsCodeGetRequest(
         string $code,
         string $contentType = self::contentTypes['getNpcNpcsDetailsCodeGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'code' is set
         if ($code === null || (is_array($code) && count($code) === 0)) {
@@ -1423,7 +1404,7 @@ class NPCsApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $code)) {
             throw new InvalidArgumentException("invalid value for \"code\" when calling NPCsApi.getNpcNpcsDetailsCodeGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/npcs/details/{code}';
         $formParams = [];
@@ -1521,7 +1502,7 @@ class NPCsApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

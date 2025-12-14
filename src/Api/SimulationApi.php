@@ -1,4 +1,5 @@
 <?php
+
 /**
  * SimulationApi
  * PHP version 8.1
@@ -140,8 +141,7 @@ class SimulationApi
     public function fightSimulationSimulationFightSimulationPost(
         \Kehet\ArtifactsMMO\Model\CombatSimulationRequestSchema $combat_simulation_request_schema,
         string $contentType = self::contentTypes['fightSimulationSimulationFightSimulationPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\CombatSimulationResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\CombatSimulationResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->fightSimulationSimulationFightSimulationPostWithHttpInfo($combat_simulation_request_schema, $contentType);
         return $response;
     }
@@ -161,8 +161,7 @@ class SimulationApi
     public function fightSimulationSimulationFightSimulationPostWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\CombatSimulationRequestSchema $combat_simulation_request_schema,
         string $contentType = self::contentTypes['fightSimulationSimulationFightSimulationPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->fightSimulationSimulationFightSimulationPostRequest($combat_simulation_request_schema, $contentType);
 
         try {
@@ -187,7 +186,7 @@ class SimulationApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\CombatSimulationResponseSchema',
@@ -213,7 +212,7 @@ class SimulationApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -268,7 +267,7 @@ class SimulationApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -287,8 +286,7 @@ class SimulationApi
     public function fightSimulationSimulationFightSimulationPostAsync(
         \Kehet\ArtifactsMMO\Model\CombatSimulationRequestSchema $combat_simulation_request_schema,
         string $contentType = self::contentTypes['fightSimulationSimulationFightSimulationPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->fightSimulationSimulationFightSimulationPostAsyncWithHttpInfo($combat_simulation_request_schema, $contentType)
             ->then(
                 function ($response) {
@@ -311,8 +309,7 @@ class SimulationApi
     public function fightSimulationSimulationFightSimulationPostAsyncWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\CombatSimulationRequestSchema $combat_simulation_request_schema,
         string $contentType = self::contentTypes['fightSimulationSimulationFightSimulationPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\CombatSimulationResponseSchema';
         $request = $this->fightSimulationSimulationFightSimulationPostRequest($combat_simulation_request_schema, $contentType);
 
@@ -320,7 +317,7 @@ class SimulationApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -364,8 +361,7 @@ class SimulationApi
     public function fightSimulationSimulationFightSimulationPostRequest(
         \Kehet\ArtifactsMMO\Model\CombatSimulationRequestSchema $combat_simulation_request_schema,
         string $contentType = self::contentTypes['fightSimulationSimulationFightSimulationPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'combat_simulation_request_schema' is set
         if ($combat_simulation_request_schema === null || (is_array($combat_simulation_request_schema) && count($combat_simulation_request_schema) === 0)) {
@@ -474,7 +470,7 @@ class SimulationApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

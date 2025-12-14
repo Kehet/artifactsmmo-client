@@ -1,4 +1,5 @@
 <?php
+
 /**
  * BankExtensionTransactionSchema
  *
@@ -454,7 +455,7 @@ class BankExtensionTransactionSchema implements ModelInterface, ArrayAccess, Jso
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

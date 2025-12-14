@@ -1,4 +1,5 @@
 <?php
+
 /**
  * DataPageSimpleItemSchema
  *
@@ -552,7 +553,7 @@ class DataPageSimpleItemSchema implements ModelInterface, ArrayAccess, JsonSeria
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

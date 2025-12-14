@@ -1,4 +1,5 @@
 <?php
+
 /**
  * DataPageAccountLeaderboardSchema
  *
@@ -552,7 +553,7 @@ class DataPageAccountLeaderboardSchema implements ModelInterface, ArrayAccess, J
     #[ReturnTypeWillChange]
     public function jsonSerialize(): mixed
     {
-       return ObjectSerializer::sanitizeForSerialization($this);
+        return ObjectSerializer::sanitizeForSerialization($this);
     }
 
     /**

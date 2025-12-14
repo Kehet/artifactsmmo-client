@@ -1,4 +1,5 @@
 <?php
+
 /**
  * AchievementsApi
  * PHP version 8.1
@@ -143,8 +144,7 @@ class AchievementsApi
     public function getAchievementAchievementsCodeGet(
         string $code,
         string $contentType = self::contentTypes['getAchievementAchievementsCodeGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\AchievementResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\AchievementResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getAchievementAchievementsCodeGetWithHttpInfo($code, $contentType);
         return $response;
     }
@@ -164,8 +164,7 @@ class AchievementsApi
     public function getAchievementAchievementsCodeGetWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getAchievementAchievementsCodeGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAchievementAchievementsCodeGetRequest($code, $contentType);
 
         try {
@@ -190,7 +189,7 @@ class AchievementsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\AchievementResponseSchema',
@@ -204,7 +203,7 @@ class AchievementsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -243,7 +242,7 @@ class AchievementsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -262,8 +261,7 @@ class AchievementsApi
     public function getAchievementAchievementsCodeGetAsync(
         string $code,
         string $contentType = self::contentTypes['getAchievementAchievementsCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAchievementAchievementsCodeGetAsyncWithHttpInfo($code, $contentType)
             ->then(
                 function ($response) {
@@ -286,8 +284,7 @@ class AchievementsApi
     public function getAchievementAchievementsCodeGetAsyncWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getAchievementAchievementsCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\AchievementResponseSchema';
         $request = $this->getAchievementAchievementsCodeGetRequest($code, $contentType);
 
@@ -295,7 +292,7 @@ class AchievementsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -339,8 +336,7 @@ class AchievementsApi
     public function getAchievementAchievementsCodeGetRequest(
         string $code,
         string $contentType = self::contentTypes['getAchievementAchievementsCodeGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'code' is set
         if ($code === null || (is_array($code) && count($code) === 0)) {
@@ -351,7 +347,7 @@ class AchievementsApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $code)) {
             throw new InvalidArgumentException("invalid value for \"code\" when calling AchievementsApi.getAchievementAchievementsCodeGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/achievements/{code}';
         $formParams = [];
@@ -444,8 +440,7 @@ class AchievementsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllAchievementsAchievementsGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageAchievementSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageAchievementSchema {
         list($response) = $this->getAllAchievementsAchievementsGetWithHttpInfo($type, $page, $size, $contentType);
         return $response;
     }
@@ -469,8 +464,7 @@ class AchievementsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllAchievementsAchievementsGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAllAchievementsAchievementsGetRequest($type, $page, $size, $contentType);
 
         try {
@@ -495,7 +489,7 @@ class AchievementsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageAchievementSchema',
@@ -503,7 +497,7 @@ class AchievementsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -534,7 +528,7 @@ class AchievementsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -557,8 +551,7 @@ class AchievementsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllAchievementsAchievementsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAllAchievementsAchievementsGetAsyncWithHttpInfo($type, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -585,8 +578,7 @@ class AchievementsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllAchievementsAchievementsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageAchievementSchema';
         $request = $this->getAllAchievementsAchievementsGetRequest($type, $page, $size, $contentType);
 
@@ -594,7 +586,7 @@ class AchievementsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -642,21 +634,20 @@ class AchievementsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllAchievementsAchievementsGet'][0]
-    ): Request
-    {
+    ): Request {
 
 
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling AchievementsApi.getAllAchievementsAchievementsGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling AchievementsApi.getAllAchievementsAchievementsGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling AchievementsApi.getAllAchievementsAchievementsGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/achievements';
         $formParams = [];
@@ -773,7 +764,7 @@ class AchievementsApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

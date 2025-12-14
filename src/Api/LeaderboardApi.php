@@ -1,4 +1,5 @@
 <?php
+
 /**
  * LeaderboardApi
  * PHP version 8.1
@@ -149,8 +150,7 @@ class LeaderboardApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAccountsLeaderboardLeaderboardAccountsGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageAccountLeaderboardSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageAccountLeaderboardSchema {
         list($response) = $this->getAccountsLeaderboardLeaderboardAccountsGetWithHttpInfo($sort, $name, $page, $size, $contentType);
         return $response;
     }
@@ -176,8 +176,7 @@ class LeaderboardApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAccountsLeaderboardLeaderboardAccountsGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAccountsLeaderboardLeaderboardAccountsGetRequest($sort, $name, $page, $size, $contentType);
 
         try {
@@ -202,7 +201,7 @@ class LeaderboardApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageAccountLeaderboardSchema',
@@ -210,7 +209,7 @@ class LeaderboardApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -241,7 +240,7 @@ class LeaderboardApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -266,8 +265,7 @@ class LeaderboardApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAccountsLeaderboardLeaderboardAccountsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAccountsLeaderboardLeaderboardAccountsGetAsyncWithHttpInfo($sort, $name, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -296,8 +294,7 @@ class LeaderboardApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAccountsLeaderboardLeaderboardAccountsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageAccountLeaderboardSchema';
         $request = $this->getAccountsLeaderboardLeaderboardAccountsGetRequest($sort, $name, $page, $size, $contentType);
 
@@ -305,7 +302,7 @@ class LeaderboardApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -355,25 +352,24 @@ class LeaderboardApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAccountsLeaderboardLeaderboardAccountsGet'][0]
-    ): Request
-    {
+    ): Request {
 
 
         if ($name !== null && !preg_match("/^[a-zA-Z0-9_-]+(\\s[a-zA-Z0-9_-]+)*\\s?$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling LeaderboardApi.getAccountsLeaderboardLeaderboardAccountsGet, must conform to the pattern /^[a-zA-Z0-9_-]+(\\s[a-zA-Z0-9_-]+)*\\s?$/.");
         }
-        
+
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling LeaderboardApi.getAccountsLeaderboardLeaderboardAccountsGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling LeaderboardApi.getAccountsLeaderboardLeaderboardAccountsGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling LeaderboardApi.getAccountsLeaderboardLeaderboardAccountsGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/leaderboard/accounts';
         $formParams = [];
@@ -496,8 +492,7 @@ class LeaderboardApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getCharactersLeaderboardLeaderboardCharactersGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageCharacterLeaderboardSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageCharacterLeaderboardSchema {
         list($response) = $this->getCharactersLeaderboardLeaderboardCharactersGetWithHttpInfo($sort, $name, $page, $size, $contentType);
         return $response;
     }
@@ -523,8 +518,7 @@ class LeaderboardApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getCharactersLeaderboardLeaderboardCharactersGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getCharactersLeaderboardLeaderboardCharactersGetRequest($sort, $name, $page, $size, $contentType);
 
         try {
@@ -549,7 +543,7 @@ class LeaderboardApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageCharacterLeaderboardSchema',
@@ -557,7 +551,7 @@ class LeaderboardApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -588,7 +582,7 @@ class LeaderboardApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -613,8 +607,7 @@ class LeaderboardApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getCharactersLeaderboardLeaderboardCharactersGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getCharactersLeaderboardLeaderboardCharactersGetAsyncWithHttpInfo($sort, $name, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -643,8 +636,7 @@ class LeaderboardApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getCharactersLeaderboardLeaderboardCharactersGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageCharacterLeaderboardSchema';
         $request = $this->getCharactersLeaderboardLeaderboardCharactersGetRequest($sort, $name, $page, $size, $contentType);
 
@@ -652,7 +644,7 @@ class LeaderboardApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -702,25 +694,24 @@ class LeaderboardApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getCharactersLeaderboardLeaderboardCharactersGet'][0]
-    ): Request
-    {
+    ): Request {
 
 
         if ($name !== null && !preg_match("/^[a-zA-Z0-9_-]+(\\s[a-zA-Z0-9_-]+)*\\s?$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling LeaderboardApi.getCharactersLeaderboardLeaderboardCharactersGet, must conform to the pattern /^[a-zA-Z0-9_-]+(\\s[a-zA-Z0-9_-]+)*\\s?$/.");
         }
-        
+
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling LeaderboardApi.getCharactersLeaderboardLeaderboardCharactersGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling LeaderboardApi.getCharactersLeaderboardLeaderboardCharactersGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling LeaderboardApi.getCharactersLeaderboardLeaderboardCharactersGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/leaderboard/characters';
         $formParams = [];
@@ -846,7 +837,7 @@ class LeaderboardApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * ItemsApi
  * PHP version 8.1
@@ -157,8 +158,7 @@ class ItemsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllItemsItemsGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageItemSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageItemSchema {
         list($response) = $this->getAllItemsItemsGetWithHttpInfo($name, $min_level, $max_level, $type, $craft_skill, $craft_material, $page, $size, $contentType);
         return $response;
     }
@@ -192,8 +192,7 @@ class ItemsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllItemsItemsGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAllItemsItemsGetRequest($name, $min_level, $max_level, $type, $craft_skill, $craft_material, $page, $size, $contentType);
 
         try {
@@ -218,7 +217,7 @@ class ItemsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageItemSchema',
@@ -226,7 +225,7 @@ class ItemsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -257,7 +256,7 @@ class ItemsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -290,8 +289,7 @@ class ItemsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllItemsItemsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAllItemsItemsGetAsyncWithHttpInfo($name, $min_level, $max_level, $type, $craft_skill, $craft_material, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -328,8 +326,7 @@ class ItemsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllItemsItemsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageItemSchema';
         $request = $this->getAllItemsItemsGetRequest($name, $min_level, $max_level, $type, $craft_skill, $craft_material, $page, $size, $contentType);
 
@@ -337,7 +334,7 @@ class ItemsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -395,38 +392,37 @@ class ItemsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllItemsItemsGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($name !== null && !preg_match("/^[a-zA-Z0-9_-]+(\\s[a-zA-Z0-9_-]+)*\\s?$/", $name)) {
             throw new InvalidArgumentException("invalid value for \"name\" when calling ItemsApi.getAllItemsItemsGet, must conform to the pattern /^[a-zA-Z0-9_-]+(\\s[a-zA-Z0-9_-]+)*\\s?$/.");
         }
-        
+
         if ($min_level !== null && $min_level < 0) {
             throw new InvalidArgumentException('invalid value for "$min_level" when calling ItemsApi.getAllItemsItemsGet, must be bigger than or equal to 0.');
         }
-        
+
         if ($max_level !== null && $max_level < 0) {
             throw new InvalidArgumentException('invalid value for "$max_level" when calling ItemsApi.getAllItemsItemsGet, must be bigger than or equal to 0.');
         }
-        
+
 
 
         if ($craft_material !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $craft_material)) {
             throw new InvalidArgumentException("invalid value for \"craft_material\" when calling ItemsApi.getAllItemsItemsGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling ItemsApi.getAllItemsItemsGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling ItemsApi.getAllItemsItemsGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling ItemsApi.getAllItemsItemsGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/items';
         $formParams = [];
@@ -579,8 +575,7 @@ class ItemsApi
     public function getItemItemsCodeGet(
         string $code,
         string $contentType = self::contentTypes['getItemItemsCodeGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\ItemResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\ItemResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getItemItemsCodeGetWithHttpInfo($code, $contentType);
         return $response;
     }
@@ -600,8 +595,7 @@ class ItemsApi
     public function getItemItemsCodeGetWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getItemItemsCodeGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getItemItemsCodeGetRequest($code, $contentType);
 
         try {
@@ -626,7 +620,7 @@ class ItemsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\ItemResponseSchema',
@@ -640,7 +634,7 @@ class ItemsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -679,7 +673,7 @@ class ItemsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -698,8 +692,7 @@ class ItemsApi
     public function getItemItemsCodeGetAsync(
         string $code,
         string $contentType = self::contentTypes['getItemItemsCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getItemItemsCodeGetAsyncWithHttpInfo($code, $contentType)
             ->then(
                 function ($response) {
@@ -722,8 +715,7 @@ class ItemsApi
     public function getItemItemsCodeGetAsyncWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getItemItemsCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\ItemResponseSchema';
         $request = $this->getItemItemsCodeGetRequest($code, $contentType);
 
@@ -731,7 +723,7 @@ class ItemsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -775,8 +767,7 @@ class ItemsApi
     public function getItemItemsCodeGetRequest(
         string $code,
         string $contentType = self::contentTypes['getItemItemsCodeGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'code' is set
         if ($code === null || (is_array($code) && count($code) === 0)) {
@@ -787,7 +778,7 @@ class ItemsApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $code)) {
             throw new InvalidArgumentException("invalid value for \"code\" when calling ItemsApi.getItemItemsCodeGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/items/{code}';
         $formParams = [];
@@ -885,7 +876,7 @@ class ItemsApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

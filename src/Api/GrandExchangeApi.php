@@ -1,4 +1,5 @@
 <?php
+
 /**
  * GrandExchangeApi
  * PHP version 8.1
@@ -154,8 +155,7 @@ class GrandExchangeApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellHistoryGrandexchangeHistoryCodeGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageGeOrderHistorySchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageGeOrderHistorySchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getGeSellHistoryGrandexchangeHistoryCodeGetWithHttpInfo($code, $seller, $buyer, $page, $size, $contentType);
         return $response;
     }
@@ -183,8 +183,7 @@ class GrandExchangeApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellHistoryGrandexchangeHistoryCodeGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getGeSellHistoryGrandexchangeHistoryCodeGetRequest($code, $seller, $buyer, $page, $size, $contentType);
 
         try {
@@ -209,7 +208,7 @@ class GrandExchangeApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageGeOrderHistorySchema',
@@ -223,7 +222,7 @@ class GrandExchangeApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -262,7 +261,7 @@ class GrandExchangeApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -289,8 +288,7 @@ class GrandExchangeApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellHistoryGrandexchangeHistoryCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getGeSellHistoryGrandexchangeHistoryCodeGetAsyncWithHttpInfo($code, $seller, $buyer, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -321,8 +319,7 @@ class GrandExchangeApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellHistoryGrandexchangeHistoryCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageGeOrderHistorySchema';
         $request = $this->getGeSellHistoryGrandexchangeHistoryCodeGetRequest($code, $seller, $buyer, $page, $size, $contentType);
 
@@ -330,7 +327,7 @@ class GrandExchangeApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -382,8 +379,7 @@ class GrandExchangeApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellHistoryGrandexchangeHistoryCodeGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'code' is set
         if ($code === null || (is_array($code) && count($code) === 0)) {
@@ -394,26 +390,26 @@ class GrandExchangeApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $code)) {
             throw new InvalidArgumentException("invalid value for \"code\" when calling GrandExchangeApi.getGeSellHistoryGrandexchangeHistoryCodeGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($seller !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $seller)) {
             throw new InvalidArgumentException("invalid value for \"seller\" when calling GrandExchangeApi.getGeSellHistoryGrandexchangeHistoryCodeGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($buyer !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $buyer)) {
             throw new InvalidArgumentException("invalid value for \"buyer\" when calling GrandExchangeApi.getGeSellHistoryGrandexchangeHistoryCodeGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling GrandExchangeApi.getGeSellHistoryGrandexchangeHistoryCodeGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling GrandExchangeApi.getGeSellHistoryGrandexchangeHistoryCodeGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling GrandExchangeApi.getGeSellHistoryGrandexchangeHistoryCodeGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/grandexchange/history/{code}';
         $formParams = [];
@@ -538,8 +534,7 @@ class GrandExchangeApi
     public function getGeSellOrderGrandexchangeOrdersIdGet(
         string $id,
         string $contentType = self::contentTypes['getGeSellOrderGrandexchangeOrdersIdGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\GEOrderResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\GEOrderResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getGeSellOrderGrandexchangeOrdersIdGetWithHttpInfo($id, $contentType);
         return $response;
     }
@@ -559,8 +554,7 @@ class GrandExchangeApi
     public function getGeSellOrderGrandexchangeOrdersIdGetWithHttpInfo(
         string $id,
         string $contentType = self::contentTypes['getGeSellOrderGrandexchangeOrdersIdGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getGeSellOrderGrandexchangeOrdersIdGetRequest($id, $contentType);
 
         try {
@@ -585,7 +579,7 @@ class GrandExchangeApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\GEOrderResponseSchema',
@@ -599,7 +593,7 @@ class GrandExchangeApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -638,7 +632,7 @@ class GrandExchangeApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -657,8 +651,7 @@ class GrandExchangeApi
     public function getGeSellOrderGrandexchangeOrdersIdGetAsync(
         string $id,
         string $contentType = self::contentTypes['getGeSellOrderGrandexchangeOrdersIdGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getGeSellOrderGrandexchangeOrdersIdGetAsyncWithHttpInfo($id, $contentType)
             ->then(
                 function ($response) {
@@ -681,8 +674,7 @@ class GrandExchangeApi
     public function getGeSellOrderGrandexchangeOrdersIdGetAsyncWithHttpInfo(
         string $id,
         string $contentType = self::contentTypes['getGeSellOrderGrandexchangeOrdersIdGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\GEOrderResponseSchema';
         $request = $this->getGeSellOrderGrandexchangeOrdersIdGetRequest($id, $contentType);
 
@@ -690,7 +682,7 @@ class GrandExchangeApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -734,8 +726,7 @@ class GrandExchangeApi
     public function getGeSellOrderGrandexchangeOrdersIdGetRequest(
         string $id,
         string $contentType = self::contentTypes['getGeSellOrderGrandexchangeOrdersIdGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -746,7 +737,7 @@ class GrandExchangeApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $id)) {
             throw new InvalidArgumentException("invalid value for \"id\" when calling GrandExchangeApi.getGeSellOrderGrandexchangeOrdersIdGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/grandexchange/orders/{id}';
         $formParams = [];
@@ -841,8 +832,7 @@ class GrandExchangeApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellOrdersGrandexchangeOrdersGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageGEOrderSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageGEOrderSchema {
         list($response) = $this->getGeSellOrdersGrandexchangeOrdersGetWithHttpInfo($code, $seller, $page, $size, $contentType);
         return $response;
     }
@@ -868,8 +858,7 @@ class GrandExchangeApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellOrdersGrandexchangeOrdersGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getGeSellOrdersGrandexchangeOrdersGetRequest($code, $seller, $page, $size, $contentType);
 
         try {
@@ -894,7 +883,7 @@ class GrandExchangeApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageGEOrderSchema',
@@ -902,7 +891,7 @@ class GrandExchangeApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -933,7 +922,7 @@ class GrandExchangeApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -958,8 +947,7 @@ class GrandExchangeApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellOrdersGrandexchangeOrdersGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getGeSellOrdersGrandexchangeOrdersGetAsyncWithHttpInfo($code, $seller, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -988,8 +976,7 @@ class GrandExchangeApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellOrdersGrandexchangeOrdersGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageGEOrderSchema';
         $request = $this->getGeSellOrdersGrandexchangeOrdersGetRequest($code, $seller, $page, $size, $contentType);
 
@@ -997,7 +984,7 @@ class GrandExchangeApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1047,28 +1034,27 @@ class GrandExchangeApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getGeSellOrdersGrandexchangeOrdersGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($code !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $code)) {
             throw new InvalidArgumentException("invalid value for \"code\" when calling GrandExchangeApi.getGeSellOrdersGrandexchangeOrdersGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($seller !== null && !preg_match("/^[a-zA-Z0-9_-]+$/", $seller)) {
             throw new InvalidArgumentException("invalid value for \"seller\" when calling GrandExchangeApi.getGeSellOrdersGrandexchangeOrdersGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling GrandExchangeApi.getGeSellOrdersGrandexchangeOrdersGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling GrandExchangeApi.getGeSellOrdersGrandexchangeOrdersGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling GrandExchangeApi.getGeSellOrdersGrandexchangeOrdersGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/grandexchange/orders';
         $formParams = [];
@@ -1194,7 +1180,7 @@ class GrandExchangeApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

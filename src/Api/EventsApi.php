@@ -1,4 +1,5 @@
 <?php
+
 /**
  * EventsApi
  * PHP version 8.1
@@ -148,8 +149,7 @@ class EventsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllActiveEventsEventsActiveGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageActiveEventSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageActiveEventSchema {
         list($response) = $this->getAllActiveEventsEventsActiveGetWithHttpInfo($page, $size, $contentType);
         return $response;
     }
@@ -171,8 +171,7 @@ class EventsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllActiveEventsEventsActiveGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAllActiveEventsEventsActiveGetRequest($page, $size, $contentType);
 
         try {
@@ -197,7 +196,7 @@ class EventsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageActiveEventSchema',
@@ -205,7 +204,7 @@ class EventsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -236,7 +235,7 @@ class EventsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -257,8 +256,7 @@ class EventsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllActiveEventsEventsActiveGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAllActiveEventsEventsActiveGetAsyncWithHttpInfo($page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -283,8 +281,7 @@ class EventsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllActiveEventsEventsActiveGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageActiveEventSchema';
         $request = $this->getAllActiveEventsEventsActiveGetRequest($page, $size, $contentType);
 
@@ -292,7 +289,7 @@ class EventsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -338,20 +335,19 @@ class EventsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllActiveEventsEventsActiveGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling EventsApi.getAllActiveEventsEventsActiveGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling EventsApi.getAllActiveEventsEventsActiveGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling EventsApi.getAllActiveEventsEventsActiveGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/events/active';
         $formParams = [];
@@ -454,8 +450,7 @@ class EventsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllEventsEventsGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageEventSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageEventSchema {
         list($response) = $this->getAllEventsEventsGetWithHttpInfo($type, $page, $size, $contentType);
         return $response;
     }
@@ -479,8 +474,7 @@ class EventsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllEventsEventsGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAllEventsEventsGetRequest($type, $page, $size, $contentType);
 
         try {
@@ -505,7 +499,7 @@ class EventsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageEventSchema',
@@ -513,7 +507,7 @@ class EventsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -544,7 +538,7 @@ class EventsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -567,8 +561,7 @@ class EventsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllEventsEventsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAllEventsEventsGetAsyncWithHttpInfo($type, $page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -595,8 +588,7 @@ class EventsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllEventsEventsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageEventSchema';
         $request = $this->getAllEventsEventsGetRequest($type, $page, $size, $contentType);
 
@@ -604,7 +596,7 @@ class EventsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -652,21 +644,20 @@ class EventsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllEventsEventsGet'][0]
-    ): Request
-    {
+    ): Request {
 
 
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling EventsApi.getAllEventsEventsGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling EventsApi.getAllEventsEventsGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling EventsApi.getAllEventsEventsGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/events';
         $formParams = [];
@@ -774,8 +765,7 @@ class EventsApi
     public function spawnEventEventsSpawnPost(
         \Kehet\ArtifactsMMO\Model\SpawnEventRequest $spawn_event_request,
         string $contentType = self::contentTypes['spawnEventEventsSpawnPost'][0]
-    ): \Kehet\ArtifactsMMO\Model\ActiveEventResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\ActiveEventResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->spawnEventEventsSpawnPostWithHttpInfo($spawn_event_request, $contentType);
         return $response;
     }
@@ -795,8 +785,7 @@ class EventsApi
     public function spawnEventEventsSpawnPostWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\SpawnEventRequest $spawn_event_request,
         string $contentType = self::contentTypes['spawnEventEventsSpawnPost'][0]
-    ): array
-    {
+    ): array {
         $request = $this->spawnEventEventsSpawnPostRequest($spawn_event_request, $contentType);
 
         try {
@@ -821,7 +810,7 @@ class EventsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\ActiveEventResponseSchema',
@@ -853,7 +842,7 @@ class EventsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -916,7 +905,7 @@ class EventsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -935,8 +924,7 @@ class EventsApi
     public function spawnEventEventsSpawnPostAsync(
         \Kehet\ArtifactsMMO\Model\SpawnEventRequest $spawn_event_request,
         string $contentType = self::contentTypes['spawnEventEventsSpawnPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->spawnEventEventsSpawnPostAsyncWithHttpInfo($spawn_event_request, $contentType)
             ->then(
                 function ($response) {
@@ -959,8 +947,7 @@ class EventsApi
     public function spawnEventEventsSpawnPostAsyncWithHttpInfo(
         \Kehet\ArtifactsMMO\Model\SpawnEventRequest $spawn_event_request,
         string $contentType = self::contentTypes['spawnEventEventsSpawnPost'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\ActiveEventResponseSchema';
         $request = $this->spawnEventEventsSpawnPostRequest($spawn_event_request, $contentType);
 
@@ -968,7 +955,7 @@ class EventsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -1012,8 +999,7 @@ class EventsApi
     public function spawnEventEventsSpawnPostRequest(
         \Kehet\ArtifactsMMO\Model\SpawnEventRequest $spawn_event_request,
         string $contentType = self::contentTypes['spawnEventEventsSpawnPost'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'spawn_event_request' is set
         if ($spawn_event_request === null || (is_array($spawn_event_request) && count($spawn_event_request) === 0)) {
@@ -1122,7 +1108,7 @@ class EventsApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();

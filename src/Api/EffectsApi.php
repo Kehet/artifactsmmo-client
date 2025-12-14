@@ -1,4 +1,5 @@
 <?php
+
 /**
  * EffectsApi
  * PHP version 8.1
@@ -145,8 +146,7 @@ class EffectsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllEffectsEffectsGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\DataPageEffectSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\DataPageEffectSchema {
         list($response) = $this->getAllEffectsEffectsGetWithHttpInfo($page, $size, $contentType);
         return $response;
     }
@@ -168,8 +168,7 @@ class EffectsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllEffectsEffectsGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getAllEffectsEffectsGetRequest($page, $size, $contentType);
 
         try {
@@ -194,7 +193,7 @@ class EffectsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\DataPageEffectSchema',
@@ -202,7 +201,7 @@ class EffectsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -233,7 +232,7 @@ class EffectsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -254,8 +253,7 @@ class EffectsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllEffectsEffectsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getAllEffectsEffectsGetAsyncWithHttpInfo($page, $size, $contentType)
             ->then(
                 function ($response) {
@@ -280,8 +278,7 @@ class EffectsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllEffectsEffectsGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\DataPageEffectSchema';
         $request = $this->getAllEffectsEffectsGetRequest($page, $size, $contentType);
 
@@ -289,7 +286,7 @@ class EffectsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -335,20 +332,19 @@ class EffectsApi
         ?int $page = 1,
         ?int $size = 50,
         string $contentType = self::contentTypes['getAllEffectsEffectsGet'][0]
-    ): Request
-    {
+    ): Request {
 
         if ($page !== null && $page < 1) {
             throw new InvalidArgumentException('invalid value for "$page" when calling EffectsApi.getAllEffectsEffectsGet, must be bigger than or equal to 1.');
         }
-        
+
         if ($size !== null && $size > 100) {
             throw new InvalidArgumentException('invalid value for "$size" when calling EffectsApi.getAllEffectsEffectsGet, must be smaller than or equal to 100.');
         }
         if ($size !== null && $size < 1) {
             throw new InvalidArgumentException('invalid value for "$size" when calling EffectsApi.getAllEffectsEffectsGet, must be bigger than or equal to 1.');
         }
-        
+
 
         $resourcePath = '/effects';
         $formParams = [];
@@ -447,8 +443,7 @@ class EffectsApi
     public function getEffectEffectsCodeGet(
         string $code,
         string $contentType = self::contentTypes['getEffectEffectsCodeGet'][0]
-    ): \Kehet\ArtifactsMMO\Model\EffectResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema
-    {
+    ): \Kehet\ArtifactsMMO\Model\EffectResponseSchema|\Kehet\ArtifactsMMO\Model\ErrorResponseSchema {
         list($response) = $this->getEffectEffectsCodeGetWithHttpInfo($code, $contentType);
         return $response;
     }
@@ -468,8 +463,7 @@ class EffectsApi
     public function getEffectEffectsCodeGetWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getEffectEffectsCodeGet'][0]
-    ): array
-    {
+    ): array {
         $request = $this->getEffectEffectsCodeGetRequest($code, $contentType);
 
         try {
@@ -494,7 +488,7 @@ class EffectsApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
+            switch ($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
                         '\Kehet\ArtifactsMMO\Model\EffectResponseSchema',
@@ -508,7 +502,7 @@ class EffectsApi
                         $response,
                     );
             }
-            
+
 
             if ($statusCode < 200 || $statusCode > 299) {
                 throw new ApiException(
@@ -547,7 +541,7 @@ class EffectsApi
                     $e->setResponseObject($data);
                     throw $e;
             }
-        
+
             throw $e;
         }
     }
@@ -566,8 +560,7 @@ class EffectsApi
     public function getEffectEffectsCodeGetAsync(
         string $code,
         string $contentType = self::contentTypes['getEffectEffectsCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         return $this->getEffectEffectsCodeGetAsyncWithHttpInfo($code, $contentType)
             ->then(
                 function ($response) {
@@ -590,8 +583,7 @@ class EffectsApi
     public function getEffectEffectsCodeGetAsyncWithHttpInfo(
         string $code,
         string $contentType = self::contentTypes['getEffectEffectsCodeGet'][0]
-    ): PromiseInterface
-    {
+    ): PromiseInterface {
         $returnType = '\Kehet\ArtifactsMMO\Model\EffectResponseSchema';
         $request = $this->getEffectEffectsCodeGetRequest($code, $contentType);
 
@@ -599,7 +591,7 @@ class EffectsApi
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
@@ -643,8 +635,7 @@ class EffectsApi
     public function getEffectEffectsCodeGetRequest(
         string $code,
         string $contentType = self::contentTypes['getEffectEffectsCodeGet'][0]
-    ): Request
-    {
+    ): Request {
 
         // verify the required parameter 'code' is set
         if ($code === null || (is_array($code) && count($code) === 0)) {
@@ -655,7 +646,7 @@ class EffectsApi
         if (!preg_match("/^[a-zA-Z0-9_-]+$/", $code)) {
             throw new InvalidArgumentException("invalid value for \"code\" when calling EffectsApi.getEffectEffectsCodeGet, must conform to the pattern /^[a-zA-Z0-9_-]+$/.");
         }
-        
+
 
         $resourcePath = '/effects/{code}';
         $formParams = [];
@@ -753,7 +744,7 @@ class EffectsApi
         RequestInterface $request,
         ResponseInterface $response,
     ): array {
-        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
+        if (in_array($dataType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'], true)) {
             $content = $response->getBody(); //stream goes to serializer
         } else {
             $content = (string) $response->getBody();
