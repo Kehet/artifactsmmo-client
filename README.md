@@ -54,6 +54,26 @@ try {
 }
 ```
 
+## Unpaginate helper class
+
+```php
+<?php
+
+$config = new \Kehet\ArtifactsMMO\Configuration()
+    ->setHost('https://api.artifactsmmo.com')
+    ->setAccessToken('XXXXXXXXXXXXXX');
+
+$api = new \Kehet\ArtifactsMMO\Api\ItemsApi(new GuzzleHttp\Client(), $config);
+
+$items = iterator_to_array(\Kehet\ArtifactsMMO\Util\Unpaginate::iterate(
+    fn(int $page) => $api->getAllItemsItemsGet(page: $page, size: 100),
+    sleepSeconds: 1
+));
+
+var_dump($items);
+var_dump(count($items));
+```
+
 ## API Endpoints
 
 All URIs are relative to *http://localhost*
